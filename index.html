@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanishpreet Singh Sidhu | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="home">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="assets/docs/Tanishpreet_Resume.pdf" download>Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="intro">
+            <img src="assets/img/profile.jpg" alt="Profile Photo" class="profile-pic">
+            <h1>Tanishpreet Singh Sidhu</h1>
+            <p>Technical Lead | Software Engineer | Consultant</p>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I'm a passionate software engineer and project leader with 5+ years of experience at Odessa, working across India, Serbia, and the U.S. I specialize in enterprise software delivery, business analysis, product management, and DevOps. Outside of work, I explore startups and build open-source tools.</p>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <p><strong>Odessa (2019 – Present)</strong><br>
+        Technical Lead, Staff Engineer, Senior Software Engineer, and more.<br>
+        Led global teams, built dashboards, managed enterprise projects, improved financial reporting, and more.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li><strong>hui-i:</strong> Color palette web app (React.js)</li>
+            <li><strong>alias:</strong> Social platform for free speech (Node.js, MongoDB) <a href="https://github.com/tanishsidhu/alias" target="_blank">[GitHub]</a></li>
+            <li><strong>Odessa Launchpad:</strong> Product innovation for Islamic Banking</li>
+            <li><strong>Chitkara Incubator:</strong> Bulk e-commerce platform idea</li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <p><strong>Languages/Tech:</strong> C#, SQL, Python, JavaScript, ReactJS, MongoDB<br>
+        <strong>Tools:</strong> Power BI, Tableau, Excel, JIRA, GIT, Visual Studio<br>
+        <strong>Certifications:</strong> Google PM, AI Essentials, SQL (HackerRank)</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:tanishpreet.official@gmail.com">tanishpreet.official@gmail.com</a><br>
+        LinkedIn: <a href="https://www.linkedin.com/in/tanishsidhu" target="_blank">linkedin.com/in/tanishsidhu</a></p>
+    </section>
+
+    <footer>
+        <p>© 2025 Tanishpreet Singh Sidhu</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
