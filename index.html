@@ -503,6 +503,22 @@
     .footer { padding: 18px 32px; border-top: 0.5px solid var(--border); display: flex; justify-content: center; }
     .footer-l { font-size: 11px; color: var(--muted); }
 
+    /* ── Typewriter ── */
+    .hero-syntax { color: var(--teal); }
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 0.82em;
+      background: var(--muted2);
+      margin-left: 4px;
+      vertical-align: 0.02em;
+      animation: cursor-blink 1s step-end infinite;
+    }
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
     /* ── Responsive ── */
     @media (max-width: 600px) {
       .nav-links { display: none; }
@@ -546,7 +562,7 @@
       src="assets/img/profile.jpeg"
       alt="Tanishpreet Singh Sidhu"
     >
-    <h1 class="hero-title">Software<br><em>Engineer</em></h1>
+    <h1 class="hero-title"><span id="typed-title"></span><span class="cursor" aria-hidden="true"></span></h1>
     <p class="hero-sub">Software Engineering · Business Analysis · Project Management</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-p">
@@ -587,8 +603,9 @@
       <div class="exp-header">
         <div class="odessa-wrap">
           <svg width="36" height="18" viewBox="0 0 108 30" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="24" font-family="Arial,sans-serif" font-size="28"
-                  font-weight="700" letter-spacing="-1" fill="#00b5b8">odessa</text>
+            <text x="54" y="24" font-family="Arial,sans-serif" font-size="28"
+                  font-weight="700" letter-spacing="-1" fill="#00b5b8"
+                  text-anchor="middle">odessa</text>
           </svg>
         </div>
         <div class="exp-hd-text">
@@ -1199,5 +1216,32 @@
     <span class="footer-l">&copy; 2026 Tanishpreet Singh Sidhu</span>
   </footer>
 
+  <script>
+    (function () {
+      var full = '<Software Engineer/>';
+      var el = document.getElementById('typed-title');
+      var i = 0;
+      function render(s) {
+        var out = '';
+        for (var j = 0; j < s.length; j++) {
+          var c = s[j];
+          if (c === '<' || c === '>' || c === '/') {
+            out += '<span class="hero-syntax">' + c + '</span>';
+          } else {
+            out += c;
+          }
+        }
+        return out;
+      }
+      function type() {
+        el.innerHTML = render(full.slice(0, i));
+        if (i < full.length) {
+          i++;
+          setTimeout(type, i === 1 ? 500 : 68);
+        }
+      }
+      type();
+    })();
+  </script>
 </body>
 </html>
