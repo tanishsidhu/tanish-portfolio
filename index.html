@@ -1,166 +1,1195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tanishpreet Singh Sidhu | Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg2: #111111;
+      --bg3: #1a1a1a;
+      --border: rgba(255,255,255,0.07);
+      --bh: rgba(255,255,255,0.14);
+      --text: #f5f5f0;
+      --muted: #5e5e59;
+      --muted2: #888882;
+      --green: #10a37f;
+      --blue: #5b8dee;
+      --purple: #9b7fe8;
+      --amber: #d4a843;
+      --orange: #e07b54;
+      --teal: #00b5b8;
+      --red: #e24b4a;
+      --lime: #4caf72;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+    }
+
+    hr.div { width: 100%; border: none; border-top: 0.5px solid var(--border); }
+
+    .sec { padding: 44px 32px; max-width: 680px; margin: 0 auto; }
+
+    .sec-label {
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    /* ── Navigation ── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      border-bottom: 0.5px solid var(--border);
+      background: rgba(10,10,10,0.97);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Instrument Serif', serif;
+      font-size: 17px;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      font-size: 12px;
+      padding: 6px 14px;
+      border: 0.5px solid var(--bh);
+      border-radius: 6px;
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.18s;
+    }
+    .nav-cta:hover { background: var(--bg3); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 60px 32px 52px;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-photo {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 15%;
+      border: 1.5px solid var(--border);
+      margin: 0 auto 22px;
+      display: block;
+    }
+    .hero-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 50px;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--muted2);
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted2);
+      line-height: 1.78;
+      max-width: 460px;
+      margin: 0 auto 28px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-p {
+      font-size: 12px;
+      padding: 8px 18px;
+      background: var(--text);
+      color: #0a0a0a;
+      border-radius: 6px;
+      font-weight: 500;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .btn-s {
+      font-size: 12px;
+      padding: 8px 18px;
+      background: transparent;
+      color: var(--text);
+      border-radius: 6px;
+      border: 0.5px solid var(--bh);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.18s;
+    }
+    .btn-s:hover { background: var(--bg3); }
+
+    /* ── About ── */
+    .about-body {
+      font-size: 14px;
+      color: rgba(245,245,240,0.65);
+      line-height: 1.85;
+    }
+
+    /* ── Experience ── */
+    .exp-card {
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .exp-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 22px;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .odessa-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: #0d1f21;
+      border: 0.5px solid rgba(0,181,184,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .exp-hd-text { flex: 1; }
+    .exp-co-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+    .exp-co-meta { font-size: 12px; color: var(--muted2); }
+
+    .roles-track { padding: 18px 22px; border-bottom: 0.5px solid var(--border); }
+    .roles-track-label {
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .role-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 7px 0;
+      position: relative;
+    }
+    .role-row:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 22px;
+      width: 1px;
+      height: calc(100% - 4px);
+      background: var(--border);
+    }
+    .rdot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .role-info { flex: 1; }
+    .role-title { font-size: 13px; color: rgba(245,245,240,0.82); }
+    .role-dept { font-size: 11px; color: var(--muted2); margin-top: 1px; }
+    .role-date { font-size: 11px; color: var(--muted); white-space: nowrap; }
+    .rbadge { font-size: 10px; border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
+
+    .ach { padding: 18px 22px; }
+    .ach-label { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .ac {
+      background: var(--bg3);
+      border: 0.5px solid var(--border);
+      border-radius: 0 9px 9px 0;
+      padding: 13px 14px;
+      transition: border-color 0.2s;
+    }
+    .ac:hover { border-color: var(--bh); }
+    .ac.full { grid-column: 1 / -1; }
+    .ac-ico { display: flex; align-items: center; gap: 6px; margin-bottom: 7px; }
+    .ac-ico i { font-size: 15px; }
+    .ac-stat { font-size: 18px; font-family: 'Instrument Serif', serif; letter-spacing: -0.5px; }
+    .ac-title { font-size: 12px; font-weight: 500; color: rgba(245,245,240,0.78); margin-bottom: 3px; }
+    .ac-body { font-size: 11px; color: var(--muted2); line-height: 1.6; }
+
+    /* ── Projects ── */
+    .proj-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+    .proj-card {
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s;
+    }
+    .proj-card:hover { border-color: var(--bh); }
+    .proj-ico {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--bg3);
+      border: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .proj-name { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+    .proj-desc { font-size: 12px; color: var(--muted2); line-height: 1.62; flex: 1; }
+    .proj-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; flex-wrap: wrap; gap: 5px; }
+    .ptag { font-size: 10px; border-radius: 4px; padding: 2px 7px; }
+    .plinks { display: flex; gap: 5px; }
+    .plink {
+      font-size: 11px;
+      color: rgba(245,245,240,0.45);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .plink:hover { border-color: var(--bh); color: var(--text); }
+
+    /* ── Education ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .edu-card {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 0.5px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.25s;
+    }
+    .edu-card:hover { border-color: var(--bh); }
+    .edu-top {
+      padding: 22px 22px 16px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .edu-top::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+    }
+    .edu-card.uni .edu-top { background: linear-gradient(135deg, #1e0e0e 0%, #150808 100%); }
+    .edu-card.uni .edu-top::before { background: radial-gradient(circle at 80% 20%, #e24b4a 0%, transparent 65%); }
+    .edu-card.uni .edu-ico { background: rgba(226,75,74,0.15); border: 0.5px solid rgba(226,75,74,0.28); }
+    .edu-card.uni .edu-ytag { color: rgba(226,75,74,0.9); background: rgba(226,75,74,0.1); border: 0.5px solid rgba(226,75,74,0.25); }
+    .edu-card.uni .cgpa-bar { background: linear-gradient(90deg, rgba(226,75,74,0.4), rgba(226,75,74,0.95)); }
+    .edu-card.uni .cgpa-val { color: rgba(226,75,74,0.95); }
+    .edu-card.school .edu-top { background: linear-gradient(135deg, #0c1a0e 0%, #081208 100%); }
+    .edu-card.school .edu-top::before { background: radial-gradient(circle at 80% 20%, #4caf72 0%, transparent 65%); }
+    .edu-card.school .edu-ico { background: rgba(76,175,114,0.12); border: 0.5px solid rgba(76,175,114,0.25); }
+    .edu-card.school .edu-ytag { color: rgba(76,175,114,0.9); background: rgba(76,175,114,0.08); border: 0.5px solid rgba(76,175,114,0.22); }
+    .edu-card.school .cgpa-bar { background: linear-gradient(90deg, rgba(76,175,114,0.4), rgba(76,175,114,0.95)); }
+    .edu-card.school .cgpa-val { color: rgba(76,175,114,0.95); }
+    .edu-ico {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+    .edu-school-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+      position: relative;
+      z-index: 1;
+    }
+    .edu-ytag {
+      font-size: 10px;
+      border-radius: 4px;
+      padding: 2px 7px;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+    }
+    .edu-bot {
+      padding: 14px 22px 18px;
+      background: var(--bg2);
+      border-top: 0.5px solid var(--border);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .edu-deg { font-size: 12px; color: rgba(245,245,240,0.72); line-height: 1.5; margin-bottom: 10px; }
+    .cgpa-row { display: flex; align-items: center; gap: 10px; }
+    .cgpa-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); }
+    .cgpa-wrap { flex: 1; height: 3px; background: rgba(255,255,255,0.06); border-radius: 100px; overflow: hidden; }
+    .cgpa-bar { height: 100%; border-radius: 100px; }
+    .cgpa-val { font-size: 12px; font-weight: 500; font-family: 'Instrument Serif', serif; letter-spacing: -0.3px; }
+    .edu-loc { display: flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 11px; color: var(--muted); }
+
+    /* ── Skills ── */
+    .skill-cats { display: flex; flex-direction: column; gap: 10px; }
+    .cat-card { border-radius: 12px; overflow: hidden; border: 0.5px solid var(--border); transition: border-color 0.22s; }
+    .cat-card:hover { border-color: var(--bh); }
+    .cat-hd { display: flex; align-items: center; gap: 12px; padding: 14px 16px 12px; }
+    .cat-ico { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .cat-title { font-size: 12px; font-weight: 500; color: var(--text); flex: 1; }
+    .cat-count { font-size: 10px; color: var(--muted); padding: 2px 8px; border-radius: 100px; border: 0.5px solid var(--border); background: var(--bg3); }
+    .chips-row { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 14px; }
+    .sk { font-size: 11px; border-radius: 6px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 5px; transition: opacity 0.18s; }
+    .sk:hover { opacity: 0.8; }
+    .sk i { font-size: 12px; }
+
+    .langs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; }
+    .lang-card {
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 10px;
+      text-align: center;
+      transition: border-color 0.22s;
+    }
+    .lang-card:hover { border-color: var(--bh); }
+    .lang-flag { font-size: 22px; margin-bottom: 6px; display: block; }
+    .lang-name { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+    .lang-lvl { font-size: 10px; color: var(--muted); }
+    .lang-bar { height: 2px; border-radius: 100px; background: rgba(255,255,255,0.06); margin-top: 8px; overflow: hidden; }
+    .lang-fill { height: 100%; border-radius: 100px; }
+
+    /* ── Awards & Certs ── */
+    .certs-list { display: flex; flex-direction: column; gap: 7px; }
+    .cert {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-radius: 11px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .cert:hover { border-color: var(--bh); background: #141414; }
+    .logo-cluster { display: flex; align-items: center; flex-shrink: 0; }
+    .ltile {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 0.5px solid;
+    }
+    .ltile + .ltile { margin-left: -6px; box-shadow: -2px 0 0 1px var(--bg2); }
+    .ltile svg { width: 13px; height: 13px; }
+    .cert-body { flex: 1; min-width: 0; }
+    .cert-name { font-size: 12px; color: rgba(245,245,240,0.82); }
+    .cert-issuers { display: flex; align-items: center; gap: 5px; margin-top: 4px; flex-wrap: wrap; }
+    .ibadge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      border-radius: 4px;
+      padding: 2px 7px;
+      border: 0.5px solid;
+    }
+    .ibadge svg { width: 9px; height: 9px; flex-shrink: 0; }
+
+    /* ── Contact ── */
+    .contact-block {
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 36px 28px;
+      text-align: center;
+    }
+    .contact-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 30px;
+      letter-spacing: -0.8px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .contact-tags { display: flex; justify-content: center; gap: 7px; flex-wrap: wrap; margin-bottom: 24px; }
+    .ctag-g {
+      font-size: 11px;
+      color: var(--green);
+      background: rgba(16,163,127,0.08);
+      border: 0.5px solid rgba(16,163,127,0.22);
+      border-radius: 100px;
+      padding: 4px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .cdot-g { width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
+    .ctag-b {
+      font-size: 11px;
+      color: var(--blue);
+      background: rgba(91,141,238,0.08);
+      border: 0.5px solid rgba(91,141,238,0.22);
+      border-radius: 100px;
+      padding: 4px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .cdot-b { width: 5px; height: 5px; border-radius: 50%; background: var(--blue); }
+    .c-links { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .c-link {
+      font-size: 12px;
+      padding: 8px 16px;
+      border: 0.5px solid var(--bh);
+      border-radius: 6px;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: background 0.18s;
+    }
+    .c-link:hover { background: var(--bg3); }
+
+    /* ── Footer ── */
+    .footer { padding: 18px 32px; border-top: 0.5px solid var(--border); display: flex; justify-content: center; }
+    .footer-l { font-size: 11px; color: var(--muted); }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero-title { font-size: 36px; }
+      .proj-grid { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .langs-grid { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid { grid-template-columns: 1fr; }
+      .ach-grid { grid-template-columns: 1fr; }
+      .ac.full { grid-column: 1; }
+      .contact-tags { flex-direction: column; align-items: center; }
+      .c-links { flex-direction: column; align-items: center; }
+      .nav { padding: 14px 20px; }
+      .sec { padding: 36px 20px; }
+      .hero { padding: 40px 20px 36px; }
+    }
+  </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
-      <ul class="navbar-nav w-100 justify-content-center text-center">
-  <li class="nav-item w-100">
-    <a class="nav-link fw-bold py-3" href="#about">About</a>
-  </li>
-  <li class="nav-item w-100">
-    <a class="nav-link fw-bold py-3" href="#experience">Experience</a>
-  </li>
-  <li class="nav-item w-100">
-    <a class="nav-link fw-bold py-3" href="#projects">Projects</a>
-  </li>
-  <li class="nav-item w-100">
-    <a class="nav-link fw-bold py-3" href="#education">Education</a>
-  </li>
-  <li class="nav-item w-100">
-    <a class="nav-link fw-bold py-3" href="#skills">Skills</a>
-  </li>
- <li class="nav-item w-100">
-    <a class="nav-link fw-bold py-3" href="#certifications">Certifications</a>
-  </li>
-  <li class="nav-item w-100">
-    <a class="nav-link fw-bold py-3" href="#contact">Contact</a>
-  </li>
-  <li class="nav-item w-100">
-    <a class="nav-link fw-bold py-3" href="assets/docs/Tanishpreet_Resume.pdf" target="_blank">View Resume</a>
-  </li>
-</ul>
+  <!-- ── Navigation ── -->
+  <nav class="nav">
+    <div class="nav-logo">Tanishpreet Singh Sidhu</div>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="assets/docs/Tanishpreet_Resume.pdf" class="nav-cta" download>
+      <i class="ti ti-download" aria-hidden="true"></i> Download Resume
+    </a>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <img
+      class="hero-photo"
+      src="assets/img/profile.jpeg"
+      alt="Tanishpreet Singh Sidhu"
+    >
+    <h1 class="hero-title">Software<br><em>Engineer</em></h1>
+    <p class="hero-sub">Software Engineering · Business Analysis · Project Management</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-p">
+        <i class="ti ti-mail" aria-hidden="true"></i> Get in touch
+      </a>
+      <a href="https://linkedin.com/in/tanishsidhu" class="btn-s" target="_blank" rel="noopener">
+        <i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn
+      </a>
+      <a href="https://github.com/tanishsidhu" class="btn-s" target="_blank" rel="noopener">
+        <i class="ti ti-brand-github" aria-hidden="true"></i> GitHub
+      </a>
     </div>
   </div>
-</nav>
 
-<header class="text-center py-5 bg-light">
-  <img src="assets/img/profile.jpeg" alt="Profile Photo" class="rounded-circle" width="150"/>
-  <h1 class="mt-3">Tanishpreet Singh Sidhu</h1>
-  <p class="lead">Software Engineering, Business Analysis, Project Management</p>
-</header>
+  <hr class="div">
 
-<main class="container py-5">
-  <section id="about">
-    <h2>About</h2>
-    <p>Technical Lead with over 7 years of experience working in a product-based asset management and fintech environment, combining strong software engineering expertise with project and delivery management responsibilities. Proven track record of leading global teams, delivering complex enterprise solutions, and working directly with clients to manage timelines, releases, and system stability. Experienced in building and supporting scalable systems using C#, .NET, SQL, and Azure, with deep exposure to financial data, accounting workflows, and production systems. Known for a quality-driven approach, collaborative leadership style, and ability to bridge technical solutions with business needs. Currently based in Serbia with valid residence and work authorization.</p>
+  <!-- ── About ── -->
+  <section class="sec" id="about">
+    <div class="sec-label">About</div>
+    <p class="about-body">
+      Software Engineer with over 7 years of experience in a product-based fintech
+      environment. Combines deep software engineering expertise with project and delivery
+      management — leading global teams, managing enterprise releases, and working directly
+      with clients on complex financial systems. Built on a foundation of C#, .NET, SQL, and
+      Azure, with strong exposure to accounting workflows, API integrations, and DevOps
+      practices.
+    </p>
   </section>
 
-  <section id="experience" class="pt-5">
-    <h2>Professional Experience</h2>
-    <pre style="white-space: pre-wrap;">
-ODESSA (FinTech, Consulting & Asset Finance Platforms) June 2019 – Present
+  <hr class="div">
 
-Technical Lead – Enterprise Customer Support – (April 2025 – Present)
-Staff Engineer – Enterprise Customer Support – (April 2024 – March 2025)
-Senior Software Engineer – Delivery Engineering – (April 2022 – March 2024)
-Software Engineer – Delivery Engineering – (June 2020 – March 2022)
-Intern – Software Engineering – (June 2019 – May 2020)
+  <!-- ── Experience ── -->
+  <section class="sec" id="experience">
+    <div class="sec-label">Experience</div>
+    <div class="exp-card">
 
-•	Spearheaded globally distributed team of developers and business analysts across India, Serbia, and the U.S to manage delivery planning, project implementation, software delivery and stakeholder alignment. Addressed application defects, & designed innovative dashboards using Microsoft Power Automate and JIRA, delivering real-time financial analyses for clients with revenues exceeding $5 billion.
-•	Acted as a client-facing technical lead for enterprise customers, handling deliverables, timelines, and governance calls for multiple clients like Hewlett Packard Enterprise (HPE), GE Capital, TD Bank, Canon Financial Services, and high-profile European firms like Haydock Finance, Asset Alliance Group, Volvo Financial Services etc., demonstrating exceptional client interaction and project management skills.
-•	Owned development activities, performing deep debugging and root cause analysis for complex technical defects using C# and Microsoft Visual Studio, fixing accounting and financial data issues to correct transactional discrepancies and ensure financial integrity.
-•	Led quality focused engineering initiatives across all deliverables by enforcing unit testing, code reusability standards, and rigorous peer code reviews, ensuring clean, maintainable, and production ready code. This quality first approach resulted in near zero defects in newly delivered features, significantly improving system stability and reducing post release issues and rework.
-•	Performed in depth data analysis and performance optimization using SQL, including analysis, design, and refactoring of complex Stored Procedures; used SQL Profiler and execution plans to identify bottlenecks, optimize queries and indexing strategies, and improve system performance by up to 70%, significantly reducing turnaround time for business transactions and workflows.
-•	Drove DevOps and release management activities on Azure, maintaining CI/CD pipelines, managing deployments across environments, supporting versioned releases. Prepared manual release content, executed controlled manual releases when automation was not feasible, ensuring rollback readiness, and collaborated with CloudOps teams to deploy stable releases with minimal downtime.
-•	Owned API troubleshooting and integration support, using Postman to analyze requests/responses, diagnose API defects, and resolve integration issues raised by clients. Actively supported client teams in integrating Odessa APIs into their business workflows, validating payloads, and ensuring reliable, secure, and seamless inbound and outbound integrations.
-•	Drove product migrations, upgrades, and new feature development, working through code integrations, testing cycles, and release readiness. Actively supported performance and unit testing, partnered with business teams during UAT, and ensured smooth adoption of upgraded solution
-•	Contributed to internal AI initiatives by collaborating with cross functional teams exploring integrations with strategic external AI vendors like ABBYY and ZEST to improve client usability and operational efficiency, including AI assisted contract summaries and smarter user validation guidance. 
-•	Effectively leveraged tools like GitHub Copilot, Claude Code, and Codex as productivity aids for development, applying them judiciously alongside core technical expertise.
-    </pre>
+      <!-- Company Header -->
+      <div class="exp-header">
+        <div class="odessa-wrap">
+          <svg width="36" height="18" viewBox="0 0 108 30" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="24" font-family="Arial,sans-serif" font-size="28"
+                  font-weight="700" letter-spacing="-1" fill="#00b5b8">odessa</text>
+          </svg>
+        </div>
+        <div class="exp-hd-text">
+          <div class="exp-co-name">Odessa Technologies</div>
+          <div class="exp-co-meta">FinTech · Asset Finance Platform</div>
+        </div>
+      </div>
+
+      <!-- Career Progression Timeline -->
+      <div class="roles-track">
+        <div class="roles-track-label">Career progression</div>
+
+        <div class="role-row">
+          <div class="rdot" style="background:#5b8dee; box-shadow:0 0 6px rgba(91,141,238,0.5)"></div>
+          <div class="role-info">
+            <div class="role-title">Technical Lead</div>
+            <div class="role-dept">Enterprise Customer Support</div>
+          </div>
+          <div class="role-date">Apr 2025 – May 2026</div>
+          <div class="rbadge" style="color:rgba(91,141,238,.9); background:rgba(91,141,238,.1); border:0.5px solid rgba(91,141,238,.2);">Lead</div>
+        </div>
+
+        <div class="role-row">
+          <div class="rdot" style="background:#9b7fe8; box-shadow:0 0 6px rgba(155,127,232,0.4)"></div>
+          <div class="role-info">
+            <div class="role-title">Staff Engineer</div>
+            <div class="role-dept">Enterprise Customer Support</div>
+          </div>
+          <div class="role-date">Apr 2024 – Mar 2025</div>
+          <div class="rbadge" style="color:rgba(155,127,232,.9); background:rgba(155,127,232,.1); border:0.5px solid rgba(155,127,232,.2);">Staff</div>
+        </div>
+
+        <div class="role-row">
+          <div class="rdot" style="background:#d4a843"></div>
+          <div class="role-info">
+            <div class="role-title">Senior Software Engineer</div>
+            <div class="role-dept">Enterprise Customer Support</div>
+          </div>
+          <div class="role-date">Apr 2022 – Mar 2024</div>
+          <div class="rbadge" style="color:rgba(212,168,67,.9); background:rgba(212,168,67,.1); border:0.5px solid rgba(212,168,67,.2);">Senior</div>
+        </div>
+
+        <div class="role-row">
+          <div class="rdot" style="background:#e07b54"></div>
+          <div class="role-info">
+            <div class="role-title">Software Engineer</div>
+            <div class="role-dept">Enterprise Customer Support</div>
+          </div>
+          <div class="role-date">Jun 2020 – Mar 2022</div>
+          <div class="rbadge" style="color:rgba(224,123,84,.9); background:rgba(224,123,84,.1); border:0.5px solid rgba(224,123,84,.2);">Engineer</div>
+        </div>
+
+        <div class="role-row">
+          <div class="rdot" style="background:#888882"></div>
+          <div class="role-info">
+            <div class="role-title">Intern</div>
+            <div class="role-dept">Enterprise Customer Support</div>
+          </div>
+          <div class="role-date">Jun 2019 – May 2020</div>
+          <div class="rbadge" style="color:rgba(136,136,130,.9); background:rgba(136,136,130,.1); border:0.5px solid rgba(136,136,130,.2);">Intern</div>
+        </div>
+      </div>
+
+      <!-- Achievements Grid -->
+      <div class="ach">
+        <div class="ach-label">Key contributions</div>
+        <div class="ach-grid">
+
+          <div class="ac" style="border-left: 2px solid rgba(91,141,238,0.4);">
+            <div class="ac-ico">
+              <i class="ti ti-users" style="color:#5b8dee;" aria-hidden="true"></i>
+            </div>
+            <div class="ac-title">Global Team Leadership</div>
+            <div class="ac-body">Spearheaded distributed teams across India, Serbia &amp; the U.S. for delivery planning, project implementation, and stakeholder alignment.</div>
+          </div>
+
+          <div class="ac" style="border-left: 2px solid rgba(0,181,184,0.4);">
+            <div class="ac-ico">
+              <i class="ti ti-building-bank" style="color:#00b5b8;" aria-hidden="true"></i>
+            </div>
+            <div class="ac-title">Enterprise Client Management</div>
+            <div class="ac-body">Technical lead for HPE, GE Capital, TD Bank, Canon Financial, Haydock Finance, Asset Alliance Group, and Volvo Financial Services.</div>
+          </div>
+
+          <div class="ac" style="border-left: 2px solid rgba(212,168,67,0.4);">
+            <div class="ac-ico">
+              <i class="ti ti-database" style="color:#d4a843;" aria-hidden="true"></i>
+              <span class="ac-stat" style="color:#d4a843;">70%</span>
+            </div>
+            <div class="ac-title">SQL Performance Optimisation</div>
+            <div class="ac-body">Refactored stored procedures using SQL Profiler and execution plans, improving system performance by up to 70%.</div>
+          </div>
+
+          <div class="ac" style="border-left: 2px solid rgba(155,127,232,0.4);">
+            <div class="ac-ico">
+              <i class="ti ti-shield-check" style="color:#9b7fe8;" aria-hidden="true"></i>
+            </div>
+            <div class="ac-title">Quality Engineering</div>
+            <div class="ac-body">Enforced unit testing, peer code reviews, and reusability standards — achieving near-zero defects in delivered features.</div>
+          </div>
+
+          <div class="ac" style="border-left: 2px solid rgba(224,123,84,0.4);">
+            <div class="ac-ico">
+              <i class="ti ti-cloud" style="color:#e07b54;" aria-hidden="true"></i>
+            </div>
+            <div class="ac-title">Azure DevOps &amp; CI/CD</div>
+            <div class="ac-body">Maintained CI/CD pipelines, managed cross-environment deployments, and executed controlled releases with rollback readiness.</div>
+          </div>
+
+          <div class="ac" style="border-left: 2px solid rgba(91,141,238,0.25);">
+            <div class="ac-ico">
+              <i class="ti ti-api" style="color:#5b8dee;" aria-hidden="true"></i>
+            </div>
+            <div class="ac-title">API Integration Support</div>
+            <div class="ac-body">Diagnosed API defects via Postman and supported client teams integrating Odessa APIs into business workflows.</div>
+          </div>
+
+          <div class="ac full" style="border-left: 2px solid rgba(0,181,184,0.3);">
+            <div class="ac-ico">
+              <i class="ti ti-brain" style="color:#00b5b8;" aria-hidden="true"></i>
+            </div>
+            <div class="ac-title">AI Initiatives &amp; Tooling</div>
+            <div class="ac-body">Contributed to internal AI integrations with ABBYY and ZEST for AI-assisted contract summaries. Leveraged Claude Code and Codex as daily productivity aids alongside core engineering work.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="projects" class="pt-5">
-    <h2>Projects & Engagements</h2>
-    <pre style="white-space: pre-wrap;">
-• hui-i – Developed a color palette web application using React.js.
-• alias – Built a social-media-inspired platform emphasizing free speech and anonymity, using Node.js, Express.js, and MongoDB, and deployed on Heroku. (Source Code)
-• Odessa Launchpad (Product Innovation Program) – Contributed to the program, focusing on market strategy to establish a presence in the Middle Eastern finance and leasing market (Islamic Banking), including the development of a localized prototype of the Odessa application.
-• Chitkara Incubator (Entrepreneurial Program) – Presented an idea for a comprehensive e-commerce platform capable of delivering bulk goods. Collaborated with angel investors, market researchers, and a team of developers to evaluate the business potential and feasibility.
-    </pre>
+  <hr class="div">
+
+  <!-- ── Projects ── -->
+  <section class="sec" id="projects">
+    <div class="sec-label">Projects</div>
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-ico">
+          <i class="ti ti-chart-line" style="color:#10a37f;" aria-hidden="true"></i>
+        </div>
+        <div class="proj-name">PeakOrLow</div>
+        <div class="proj-desc">AI-powered market briefing web app in C# and ASP.NET Core, using the Anthropic Claude API. Hosted on Azure with a cost-optimised caching architecture. Built end-to-end with Claude Code.</div>
+        <div class="proj-footer">
+          <span class="ptag" style="color:rgba(91,141,238,.85); background:rgba(91,141,238,.07); border:0.5px solid rgba(91,141,238,.18);">C# · ASP.NET · Azure · Claude API</span>
+          <div class="plinks">
+            <a href="https://github.com/tanishsidhu/PeakOrLow" class="plink" target="_blank" rel="noopener">
+              <i class="ti ti-brand-github" aria-hidden="true"></i> Code
+            </a>
+            <a href="https://peakorlow.azurewebsites.net/" class="plink" target="_blank" rel="noopener">
+              <i class="ti ti-external-link" aria-hidden="true"></i> Live
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-ico">
+          <i class="ti ti-shield" style="color:#5b8dee;" aria-hidden="true"></i>
+        </div>
+        <div class="proj-name">alias</div>
+        <div class="proj-desc">Social-media-inspired platform emphasising free speech and anonymity. Built with Node.js, Express.js, and MongoDB, deployed on Heroku.</div>
+        <div class="proj-footer">
+          <span class="ptag" style="color:rgba(91,141,238,.85); background:rgba(91,141,238,.07); border:0.5px solid rgba(91,141,238,.18);">Node.js · Express · MongoDB</span>
+          <div class="plinks">
+            <a href="https://github.com/tanishsidhu/alias" class="plink" target="_blank" rel="noopener">
+              <i class="ti ti-brand-github" aria-hidden="true"></i> Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-ico">
+          <i class="ti ti-world" style="color:#d4a843;" aria-hidden="true"></i>
+        </div>
+        <div class="proj-name">Odessa Launchpad</div>
+        <div class="proj-desc">Product Innovation Program: market strategy for Islamic Banking entry in the Middle East, including a localised prototype of the Odessa application.</div>
+        <div class="proj-footer">
+          <span class="ptag" style="color:rgba(212,168,67,.85); background:rgba(212,168,67,.07); border:0.5px solid rgba(212,168,67,.18);">Product · Market Strategy</span>
+          <div class="plinks"></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-ico">
+          <i class="ti ti-rocket" style="color:#9b7fe8;" aria-hidden="true"></i>
+        </div>
+        <div class="proj-name">Chitkara Incubator</div>
+        <div class="proj-desc">E-commerce platform for bulk goods delivery. Pitched to angel investors; collaborated with market researchers and a developer team to evaluate business feasibility.</div>
+        <div class="proj-footer">
+          <span class="ptag" style="color:rgba(155,127,232,.85); background:rgba(155,127,232,.07); border:0.5px solid rgba(155,127,232,.18);">Entrepreneurship · B2B</span>
+          <div class="plinks"></div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <section id="education" class="pt-5">
-    <h2>Education</h2>
-    <pre style="white-space: pre-wrap;">
-CHITKARA UNIVERSITY (CGPA: 9.17) 2016 – 2020
-Bachelor of Technology – BTech, Computer Science Rajpura, Punjab, India
+  <hr class="div">
 
-GIAN JYOTI GLOBAL SCHOOL | THE BRITISH SCHOOL (CGPA: 10.00) 2014 – 2016
-High School – 10th to 12th Standard Chandigarh, India
-    </pre>
+  <!-- ── Education ── -->
+  <section class="sec" id="education">
+    <div class="sec-label">Education</div>
+    <div class="edu-grid">
+
+      <div class="edu-card uni">
+        <div class="edu-top">
+          <div class="edu-ico">
+            <i class="ti ti-school" style="color:#e24b4a;" aria-hidden="true"></i>
+          </div>
+          <div class="edu-school-name">Chitkara University</div>
+          <span class="edu-ytag">2016 – 2020</span>
+        </div>
+        <div class="edu-bot">
+          <div class="edu-deg">Bachelor of Technology / Computer Science</div>
+          <div class="cgpa-row">
+            <span class="cgpa-lbl">CGPA</span>
+            <div class="cgpa-wrap">
+              <div class="cgpa-bar" style="width: 91.7%;"></div>
+            </div>
+            <span class="cgpa-val">9.17 / 10</span>
+          </div>
+          <div class="edu-loc">
+            <i class="ti ti-map-pin" aria-hidden="true"></i>
+            Rajpura, Punjab, India
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-card school">
+        <div class="edu-top">
+          <div class="edu-ico">
+            <i class="ti ti-book" style="color:#4caf72;" aria-hidden="true"></i>
+          </div>
+          <div class="edu-school-name">Gian Jyoti Group of Institutions</div>
+          <span class="edu-ytag">2014 – 2016</span>
+        </div>
+        <div class="edu-bot">
+          <div class="edu-deg">High School / 10th – 12th Standard</div>
+          <div class="cgpa-row">
+            <span class="cgpa-lbl">CGPA</span>
+            <div class="cgpa-wrap">
+              <div class="cgpa-bar" style="width: 100%;"></div>
+            </div>
+            <span class="cgpa-val">10.00 / 10</span>
+          </div>
+          <div class="edu-loc">
+            <i class="ti ti-map-pin" aria-hidden="true"></i>
+            Chandigarh, India
+          </div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <section id="skills" class="pt-5">
-    <h2>Skills & Competencies</h2>
-    <pre style="white-space: pre-wrap;">
-Programming & Scripting: C#, VB.NET, SQL, Python, Azure, JavaScript, HTML, NodeJS, ReactJS, MongoDB, Data Structures, ETL, Postman
-Data Analysis, Visualization, & Collaboration: Microsft Excel, Microsoft Power Automate, Power BI, JIRA, ServiceNow, Confluence, GIT, TFS, Microsoft Visual Studio
-    </pre>
+  <hr class="div">
+
+  <!-- ── Skills & Competencies ── -->
+  <section class="sec" id="skills">
+    <div class="sec-label">Skills &amp; Competencies</div>
+    <div class="skill-cats">
+
+      <div class="cat-card" style="background: linear-gradient(135deg, #0d1520 0%, #0a0a0a 60%);">
+        <div class="cat-hd" style="border-bottom: 0.5px solid rgba(91,141,238,0.12);">
+          <div class="cat-ico" style="background: rgba(91,141,238,0.12); border: 0.5px solid rgba(91,141,238,0.22);">
+            <i class="ti ti-code" style="color:#5b8dee; font-size:16px;" aria-hidden="true"></i>
+          </div>
+          <span class="cat-title">Languages &amp; Frameworks</span>
+          <span class="cat-count">8</span>
+        </div>
+        <div class="chips-row">
+          <span class="sk" style="color:rgba(91,141,238,.95); background:rgba(91,141,238,.08); border:0.5px solid rgba(91,141,238,.18);">C#</span>
+          <span class="sk" style="color:rgba(91,141,238,.75); background:rgba(91,141,238,.06); border:0.5px solid rgba(91,141,238,.15);">VB.NET</span>
+          <span class="sk" style="color:rgba(138,180,248,.9); background:rgba(138,180,248,.07); border:0.5px solid rgba(138,180,248,.18);">
+            <i class="ti ti-brand-javascript" aria-hidden="true"></i> JavaScript
+          </span>
+          <span class="sk" style="color:rgba(228,115,77,.85); background:rgba(228,115,77,.07); border:0.5px solid rgba(228,115,77,.18);">
+            <i class="ti ti-brand-html5" aria-hidden="true"></i> HTML
+          </span>
+          <span class="sk" style="color:rgba(75,164,196,.85); background:rgba(75,164,196,.07); border:0.5px solid rgba(75,164,196,.18);">
+            <i class="ti ti-brand-python" aria-hidden="true"></i> Python
+          </span>
+          <span class="sk" style="color:rgba(97,218,251,.85); background:rgba(97,218,251,.07); border:0.5px solid rgba(97,218,251,.18);">
+            <i class="ti ti-brand-react" aria-hidden="true"></i> React.js
+          </span>
+          <span class="sk" style="color:rgba(104,210,122,.85); background:rgba(104,210,122,.07); border:0.5px solid rgba(104,210,122,.18);">
+            <i class="ti ti-brand-nodejs" aria-hidden="true"></i> Node.js
+          </span>
+          <span class="sk" style="color:rgba(77,179,121,.85); background:rgba(77,179,121,.07); border:0.5px solid rgba(77,179,121,.18);">
+            <i class="ti ti-leaf" aria-hidden="true"></i> MongoDB
+          </span>
+        </div>
+      </div>
+
+      <div class="cat-card" style="background: linear-gradient(135deg, #100d1e 0%, #0a0a0a 60%);">
+        <div class="cat-hd" style="border-bottom: 0.5px solid rgba(155,127,232,0.12);">
+          <div class="cat-ico" style="background: rgba(155,127,232,0.12); border: 0.5px solid rgba(155,127,232,0.22);">
+            <i class="ti ti-cloud" style="color:#9b7fe8; font-size:16px;" aria-hidden="true"></i>
+          </div>
+          <span class="cat-title">Cloud &amp; DevOps</span>
+          <span class="cat-count">4</span>
+        </div>
+        <div class="chips-row">
+          <span class="sk" style="color:rgba(155,127,232,.9); background:rgba(155,127,232,.08); border:0.5px solid rgba(155,127,232,.18);">
+            <i class="ti ti-brand-azure" aria-hidden="true"></i> Azure
+          </span>
+          <span class="sk" style="color:rgba(155,127,232,.75); background:rgba(155,127,232,.06); border:0.5px solid rgba(155,127,232,.15);">
+            <i class="ti ti-git-branch" aria-hidden="true"></i> Git
+          </span>
+          <span class="sk" style="color:rgba(155,127,232,.7); background:rgba(155,127,232,.05); border:0.5px solid rgba(155,127,232,.14);">
+            <i class="ti ti-versions" aria-hidden="true"></i> TFS
+          </span>
+          <span class="sk" style="color:rgba(155,127,232,.65); background:rgba(155,127,232,.05); border:0.5px solid rgba(155,127,232,.13);">
+            <i class="ti ti-terminal" aria-hidden="true"></i> Visual Studio
+          </span>
+        </div>
+      </div>
+
+      <div class="cat-card" style="background: linear-gradient(135deg, #1a1008 0%, #0a0a0a 60%);">
+        <div class="cat-hd" style="border-bottom: 0.5px solid rgba(212,168,67,0.12);">
+          <div class="cat-ico" style="background: rgba(212,168,67,0.12); border: 0.5px solid rgba(212,168,67,0.22);">
+            <i class="ti ti-database" style="color:#d4a843; font-size:16px;" aria-hidden="true"></i>
+          </div>
+          <span class="cat-title">Data &amp; SQL</span>
+          <span class="cat-count">4</span>
+        </div>
+        <div class="chips-row">
+          <span class="sk" style="color:rgba(212,168,67,.9); background:rgba(212,168,67,.08); border:0.5px solid rgba(212,168,67,.18);">
+            <i class="ti ti-database" aria-hidden="true"></i> SQL
+          </span>
+          <span class="sk" style="color:rgba(212,168,67,.75); background:rgba(212,168,67,.06); border:0.5px solid rgba(212,168,67,.15);">
+            <i class="ti ti-activity" aria-hidden="true"></i> SQL Profiler
+          </span>
+          <span class="sk" style="color:rgba(240,195,80,.85); background:rgba(240,195,80,.07); border:0.5px solid rgba(240,195,80,.18);">
+            <i class="ti ti-chart-bar" aria-hidden="true"></i> Power BI
+          </span>
+          <span class="sk" style="color:rgba(212,168,67,.7); background:rgba(212,168,67,.05); border:0.5px solid rgba(212,168,67,.14);">
+            <i class="ti ti-table" aria-hidden="true"></i> Excel
+          </span>
+        </div>
+      </div>
+
+      <div class="cat-card" style="background: linear-gradient(135deg, #081510 0%, #0a0a0a 60%);">
+        <div class="cat-hd" style="border-bottom: 0.5px solid rgba(16,163,127,0.12);">
+          <div class="cat-ico" style="background: rgba(16,163,127,0.12); border: 0.5px solid rgba(16,163,127,0.22);">
+            <i class="ti ti-layout-kanban" style="color:#10a37f; font-size:16px;" aria-hidden="true"></i>
+          </div>
+          <span class="cat-title">Project Management &amp; Collaboration</span>
+          <span class="cat-count">5</span>
+        </div>
+        <div class="chips-row">
+          <span class="sk" style="color:rgba(16,163,127,.9); background:rgba(16,163,127,.08); border:0.5px solid rgba(16,163,127,.18);">
+            <i class="ti ti-brand-trello" aria-hidden="true"></i> JIRA
+          </span>
+          <span class="sk" style="color:rgba(16,163,127,.75); background:rgba(16,163,127,.06); border:0.5px solid rgba(16,163,127,.15);">
+            <i class="ti ti-headset" aria-hidden="true"></i> ServiceNow
+          </span>
+          <span class="sk" style="color:rgba(0,181,184,.85); background:rgba(0,181,184,.07); border:0.5px solid rgba(0,181,184,.18);">
+            <i class="ti ti-books" aria-hidden="true"></i> Confluence
+          </span>
+          <span class="sk" style="color:rgba(0,181,184,.8); background:rgba(0,181,184,.06); border:0.5px solid rgba(0,181,184,.16);">
+            <i class="ti ti-player-play" aria-hidden="true"></i> Power Automate
+          </span>
+          <span class="sk" style="color:rgba(16,163,127,.7); background:rgba(16,163,127,.05); border:0.5px solid rgba(16,163,127,.14);">
+            <i class="ti ti-api" aria-hidden="true"></i> Postman
+          </span>
+        </div>
+      </div>
+
+      <div class="cat-card" style="background: linear-gradient(135deg, #150c0c 0%, #0a0a0a 60%);">
+        <div class="cat-hd" style="border-bottom: 0.5px solid rgba(224,123,84,0.12);">
+          <div class="cat-ico" style="background: rgba(224,123,84,0.12); border: 0.5px solid rgba(224,123,84,0.22);">
+            <i class="ti ti-brain" style="color:#e07b54; font-size:16px;" aria-hidden="true"></i>
+          </div>
+          <span class="cat-title">AI &amp; Agentic Tooling</span>
+          <span class="cat-count">2</span>
+        </div>
+        <div class="chips-row">
+          <span class="sk" style="color:rgba(224,123,84,.95); background:rgba(224,123,84,.08); border:0.5px solid rgba(224,123,84,.18);">
+            <i class="ti ti-sparkles" aria-hidden="true"></i> Claude Code
+          </span>
+          <span class="sk" style="color:rgba(224,123,84,.75); background:rgba(224,123,84,.06); border:0.5px solid rgba(224,123,84,.15);">
+            <i class="ti ti-robot" aria-hidden="true"></i> Codex
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="langs-grid">
+
+      <div class="lang-card">
+        <span class="lang-flag">🇬🇧</span>
+        <div class="lang-name">English</div>
+        <div class="lang-lvl">Full professional</div>
+        <div class="lang-bar">
+          <div class="lang-fill" style="width:100%; background: linear-gradient(90deg, rgba(91,141,238,.5), rgba(91,141,238,1));"></div>
+        </div>
+      </div>
+
+      <div class="lang-card">
+        <span class="lang-flag">🇮🇳</span>
+        <div class="lang-name">Hindi</div>
+        <div class="lang-lvl">Native</div>
+        <div class="lang-bar">
+          <div class="lang-fill" style="width:100%; background: linear-gradient(90deg, rgba(212,168,67,.5), rgba(212,168,67,1));"></div>
+        </div>
+      </div>
+
+      <div class="lang-card">
+        <span class="lang-flag">🇮🇳</span>
+        <div class="lang-name">Punjabi</div>
+        <div class="lang-lvl">Native</div>
+        <div class="lang-bar">
+          <div class="lang-fill" style="width:100%; background: linear-gradient(90deg, rgba(212,168,67,.5), rgba(212,168,67,1));"></div>
+        </div>
+      </div>
+
+      <div class="lang-card">
+        <span class="lang-flag">🇷🇸</span>
+        <div class="lang-name">Serbian</div>
+        <div class="lang-lvl">Learning</div>
+        <div class="lang-bar">
+          <div class="lang-fill" style="width:28%; background: linear-gradient(90deg, rgba(155,127,232,.5), rgba(155,127,232,.85));"></div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
-<section id="certifications" class="pt-5">
-    <h2>Awards & Certifications</h2>
-    <pre style="white-space: pre-wrap;">
-• Foundations of Project Management – Authorized by Google and offered through Coursera
-• SQL – HackerRank Skill Certification
-• Artificial Intelligence Essentials – LinkedIn Learning Program
-• Data Structures & Java – Certified by Coding Ninjas
-    </pre>
-  </section>  
+  <hr class="div">
 
-  <section id="contact" class="pt-5">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:tanishpreet.official@gmail.com">tanishpreet.official@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/tanishsidhu" target="_blank">linkedin.com/in/tanishsidhu</a></p>
+  <!-- ── Awards & Certifications ── -->
+  <section class="sec" id="awards">
+    <div class="sec-label">Awards &amp; Certifications</div>
+    <div class="certs-list">
+
+      <div class="cert">
+        <div class="logo-cluster">
+          <div class="ltile" style="background: rgba(204,149,84,0.12); border-color: rgba(204,149,84,0.25);">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z" fill="#CC9554"/>
+            </svg>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Building with the Claude API</div>
+          <div class="cert-issuers">
+            <span class="ibadge" style="color:rgba(204,149,84,0.9); background:rgba(204,149,84,0.08); border-color:rgba(204,149,84,0.2);">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z" fill="#CC9554"/>
+              </svg>
+              Anthropic
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert">
+        <div class="logo-cluster">
+          <div class="ltile" style="background: rgba(204,149,84,0.12); border-color: rgba(204,149,84,0.25);">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z" fill="#CC9554"/>
+            </svg>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Claude Code in Action</div>
+          <div class="cert-issuers">
+            <span class="ibadge" style="color:rgba(204,149,84,0.9); background:rgba(204,149,84,0.08); border-color:rgba(204,149,84,0.2);">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z" fill="#CC9554"/>
+              </svg>
+              Anthropic
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert">
+        <div class="logo-cluster">
+          <div class="ltile" style="background: rgba(66,133,244,0.12); border-color: rgba(66,133,244,0.25);">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" fill="#4285F4"/>
+            </svg>
+          </div>
+          <div class="ltile" style="background: rgba(0,86,210,0.12); border-color: rgba(0,86,210,0.22);">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.374 23.977c-4.183-.21-8.006-2.626-9.959-6.347-2.097-3.858-1.871-8.864.732-12.454C4.748 1.338 9.497-.698 14.281.23c4.583.857 8.351 4.494 9.358 8.911 1.122 4.344-.423 9.173-3.925 12.04-2.289 1.953-5.295 2.956-8.34 2.797zm7.705-8.05a588.737 588.737 0 0 0-3.171-1.887c-.903 1.483-2.885 2.248-4.57 1.665-2.024-.639-3.394-2.987-2.488-5.134.801-2.009 2.79-2.707 4.357-2.464a4.19 4.19 0 0 1 2.623 1.669c1.077-.631 2.128-1.218 3.173-1.855-2.03-3.118-6.151-4.294-9.656-2.754-3.13 1.423-4.89 4.68-4.388 7.919.54 3.598 3.73 6.486 7.716 6.404a7.664 7.664 0 0 0 6.404-3.563z" fill="#0056D2"/>
+            </svg>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Foundations of Project Management</div>
+          <div class="cert-issuers">
+            <span class="ibadge" style="color:rgba(66,133,244,0.9); background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" fill="#4285F4"/>
+              </svg>
+              Google
+            </span>
+            <span class="ibadge" style="color:rgba(0,86,210,0.9); background:rgba(0,86,210,0.08); border-color:rgba(0,86,210,0.2);">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.374 23.977c-4.183-.21-8.006-2.626-9.959-6.347-2.097-3.858-1.871-8.864.732-12.454C4.748 1.338 9.497-.698 14.281.23c4.583.857 8.351 4.494 9.358 8.911 1.122 4.344-.423 9.173-3.925 12.04-2.289 1.953-5.295 2.956-8.34 2.797zm7.705-8.05a588.737 588.737 0 0 0-3.171-1.887c-.903 1.483-2.885 2.248-4.57 1.665-2.024-.639-3.394-2.987-2.488-5.134.801-2.009 2.79-2.707 4.357-2.464a4.19 4.19 0 0 1 2.623 1.669c1.077-.631 2.128-1.218 3.173-1.855-2.03-3.118-6.151-4.294-9.656-2.754-3.13 1.423-4.89 4.68-4.388 7.919.54 3.598 3.73 6.486 7.716 6.404a7.664 7.664 0 0 0 6.404-3.563z" fill="#0056D2"/>
+              </svg>
+              Coursera
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert">
+        <div class="logo-cluster">
+          <div class="ltile" style="background: rgba(0,163,86,0.12); border-color: rgba(0,163,86,0.25);">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0v24h24V0zm9.95 8.002h1.805c.061 0 .111.05.111.111v7.767c0 .061-.05.111-.11.111H9.95c-.061 0-.111-.05-.111-.11v-2.87H7.894v2.87c0 .06-.05.11-.11.11H5.976a.11.11 0 01-.11-.11V8.112c0-.06.05-.11.11-.11H7.784c.06 0 .11.05.11.11v2.868H9.84V8.113c0-.061.05-.111.111-.111zm5.813-.08c1.155 0 2.054.243 2.697.73.644.487.966 1.199.966 2.135a2.556 2.556 0 01-.37 1.35c-.245.393-.594.7-1.045.92.538.187.948.49 1.23.909.28.418.42.93.42 1.533 0 .541-.11 1.016-.33 1.424a2.76 2.76 0 01-.91 1.003c-.382.254-.832.44-1.35.556-.518.116-1.07.174-1.658.174h-3.35a.11.11 0 01-.11-.11V8.112c0-.061.05-.111.11-.111zm-.29 1.658h-1.3v2.145h1.244c.457 0 .812-.1 1.067-.298.254-.198.381-.494.381-.887 0-.403-.117-.7-.352-.89-.234-.18-.58-.27-1.04-.27zm.152 3.743h-1.452v2.402h1.5c.498 0 .879-.11 1.143-.33.265-.22.397-.548.397-.984 0-.422-.138-.74-.413-.95-.276-.213-.657-.32-1.175-.32z" fill="#00A356"/>
+            </svg>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">SQL Skill Certification</div>
+          <div class="cert-issuers">
+            <span class="ibadge" style="color:rgba(0,163,86,0.9); background:rgba(0,163,86,0.08); border-color:rgba(0,163,86,0.2);">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0v24h24V0zm9.95 8.002h1.805c.061 0 .111.05.111.111v7.767c0 .061-.05.111-.11.111H9.95c-.061 0-.111-.05-.111-.11v-2.87H7.894v2.87c0 .06-.05.11-.11.11H5.976a.11.11 0 01-.11-.11V8.112c0-.06.05-.11.11-.11H7.784c.06 0 .11.05.11.11v2.868H9.84V8.113c0-.061.05-.111.111-.111zm5.813-.08c1.155 0 2.054.243 2.697.73.644.487.966 1.199.966 2.135a2.556 2.556 0 01-.37 1.35c-.245.393-.594.7-1.045.92.538.187.948.49 1.23.909.28.418.42.93.42 1.533 0 .541-.11 1.016-.33 1.424a2.76 2.76 0 01-.91 1.003c-.382.254-.832.44-1.35.556-.518.116-1.07.174-1.658.174h-3.35a.11.11 0 01-.11-.11V8.112c0-.061.05-.111.11-.111zm-.29 1.658h-1.3v2.145h1.244c.457 0 .812-.1 1.067-.298.254-.198.381-.494.381-.887 0-.403-.117-.7-.352-.89-.234-.18-.58-.27-1.04-.27zm.152 3.743h-1.452v2.402h1.5c.498 0 .879-.11 1.143-.33.265-.22.397-.548.397-.984 0-.422-.138-.74-.413-.95-.276-.213-.657-.32-1.175-.32z" fill="#00A356"/>
+              </svg>
+              HackerRank
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert">
+        <div class="logo-cluster">
+          <div class="ltile" style="background: rgba(0,119,181,0.12); border-color: rgba(0,119,181,0.25);">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="#0077B5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Foundations of Artificial Intelligence</div>
+          <div class="cert-issuers">
+            <span class="ibadge" style="color:rgba(0,119,181,0.9); background:rgba(0,119,181,0.08); border-color:rgba(0,119,181,0.2);">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="#0077B5"/>
+              </svg>
+              LinkedIn Learning
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert">
+        <div class="logo-cluster">
+          <div class="ltile" style="background: rgba(232,74,31,0.12); border-color: rgba(232,74,31,0.25);">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.198 0c-.499.264-1.209.675-1.79.984a542.82 542.82 0 000 6.242c.995-.526 1.761-.834 1.79-2.066V0zM8.743.181C7.298.144 5.613.65 4.47 1.414c-1.17.8-1.987 1.869-2.572 3.179A16.787 16.787 0 00.9 8.87c-.15 1.483-.128 3.079.025 4.677.27 1.855.601 3.724 1.616 5.456 1.57 2.62 4.313 4.109 7.262 4.19 3.41.246 7.233.53 11.411.807.022-2.005.01-5.418 0-6.25-3.206-.21-7.398-.524-11.047-.782-.443-.043-.896-.056-1.324-.172-1.086-.295-1.806-.802-2.374-1.757-.643-1.107-.875-2.832-.797-4.294.11-1.27.287-2.41 1.244-3.44.669-.56 1.307-.758 2.161-.84 5.17.345 7.609.53 12.137.858.032-1.133.01-3.46 0-6.229C16.561.752 12.776.474 8.743.181zm-.281 9.7c.174.675.338 1.305.729 1.903.537.832 1.375 1.127 2.388.877.76-.196 1.581-.645 2.35-1.282zm12.974 1.04l-5.447.689c.799.739 1.552 1.368 2.548 1.703.988.319 1.78.01 2.308-.777.209-.329.56-1.148.591-1.614zm.842 6.461c-.388.01-.665.198-.87.355.002 1.798 0 4.127 0 6.223.586-.297 1.135-.644 1.793-.998-.005-1.454.002-3.137-.005-4.707a.904.904 0 00-.917-.873z" fill="#E8491F"/>
+            </svg>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Data Structures &amp; Java</div>
+          <div class="cert-issuers">
+            <span class="ibadge" style="color:rgba(232,74,31,0.9); background:rgba(232,74,31,0.08); border-color:rgba(232,74,31,0.2);">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.198 0c-.499.264-1.209.675-1.79.984a542.82 542.82 0 000 6.242c.995-.526 1.761-.834 1.79-2.066V0zM8.743.181C7.298.144 5.613.65 4.47 1.414c-1.17.8-1.987 1.869-2.572 3.179A16.787 16.787 0 00.9 8.87c-.15 1.483-.128 3.079.025 4.677.27 1.855.601 3.724 1.616 5.456 1.57 2.62 4.313 4.109 7.262 4.19 3.41.246 7.233.53 11.411.807.022-2.005.01-5.418 0-6.25-3.206-.21-7.398-.524-11.047-.782-.443-.043-.896-.056-1.324-.172-1.086-.295-1.806-.802-2.374-1.757-.643-1.107-.875-2.832-.797-4.294.11-1.27.287-2.41 1.244-3.44.669-.56 1.307-.758 2.161-.84 5.17.345 7.609.53 12.137.858.032-1.133.01-3.46 0-6.229C16.561.752 12.776.474 8.743.181zm-.281 9.7c.174.675.338 1.305.729 1.903.537.832 1.375 1.127 2.388.877.76-.196 1.581-.645 2.35-1.282zm12.974 1.04l-5.447.689c.799.739 1.552 1.368 2.548 1.703.988.319 1.78.01 2.308-.777.209-.329.56-1.148.591-1.614zm.842 6.461c-.388.01-.665.198-.87.355.002 1.798 0 4.127 0 6.223.586-.297 1.135-.644 1.793-.998-.005-1.454.002-3.137-.005-4.707a.904.904 0 00-.917-.873z" fill="#E8491F"/>
+              </svg>
+              Coding Ninjas
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </section>
-</main>
 
-<footer class="text-center bg-dark text-white py-3">
-  <p>Last Update: May 2026</p>
-</footer>
+  <hr class="div">
 
-<!-- Bootstrap bundle (includes JS plugins) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ── Contact ── -->
+  <section class="sec" id="contact">
+    <div class="contact-block">
+      <div class="contact-title">Let's work together</div>
+      <div class="contact-tags">
+        <span class="ctag-g"><span class="cdot-g"></span>Open to Opportunities</span>
+        <span class="ctag-b"><span class="cdot-b"></span>Serbian Work Permit · Valid until 2029</span>
+      </div>
+      <div class="c-links">
+        <a href="mailto:tanishpreet.official@gmail.com" class="c-link">
+          <i class="ti ti-mail" aria-hidden="true"></i> tanishpreet.official@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/tanishsidhu" class="c-link" target="_blank" rel="noopener">
+          <i class="ti ti-brand-linkedin" aria-hidden="true"></i> linkedin.com/in/tanishsidhu
+        </a>
+      </div>
+    </div>
+  </section>
 
-<!-- Scroll offset fix for anchor links -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const navbarHeight = document.querySelector('.navbar').offsetHeight;
-    document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          window.scrollTo({
-            top: target.offsetTop - navbarHeight,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
+  <footer class="footer">
+    <span class="footer-l">&copy; 2026 Tanishpreet Singh Sidhu</span>
+  </footer>
 
-    // Auto-collapse navbar on mobile
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        if (navbarCollapse.classList.contains('show')) {
-          new bootstrap.Collapse(navbarCollapse).toggle();
-        }
-      });
-    });
-  });
-</script>
 </body>
 </html>
