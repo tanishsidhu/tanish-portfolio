@@ -42,10 +42,10 @@
     .sec { padding: 44px 32px; max-width: 680px; margin: 0 auto; }
 
     .sec-label {
-      font-size: 10px;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+      color: var(--text);
       margin-bottom: 24px;
     }
 
@@ -372,7 +372,7 @@
     .cgpa-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); }
     .cgpa-wrap { flex: 1; height: 3px; background: rgba(255,255,255,0.06); border-radius: 100px; overflow: hidden; }
     .cgpa-bar { height: 100%; border-radius: 100px; }
-    .cgpa-val { font-size: 12px; font-weight: 500; font-family: 'Instrument Serif', serif; letter-spacing: -0.3px; }
+    .cgpa-val { font-size: 13px; font-weight: 500; font-family: 'DM Sans', sans-serif; letter-spacing: 0; }
     .edu-loc { display: flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 11px; color: var(--muted); }
 
     /* ── Skills ── */
@@ -388,7 +388,7 @@
     .sk:hover { opacity: 0.8; }
     .sk i { font-size: 12px; }
 
-    .langs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; }
+    .langs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
     .lang-card {
       background: var(--bg2);
       border: 0.5px solid var(--border);
@@ -529,7 +529,9 @@
     <ul class="nav-links">
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#awards">Awards</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="assets/docs/Tanishpreet_Resume.pdf" class="nav-cta" download>
@@ -822,7 +824,7 @@
           <div class="edu-ico">
             <i class="ti ti-book" style="color:#4caf72;" aria-hidden="true"></i>
           </div>
-          <div class="edu-school-name">Gian Jyoti Group of Institutions</div>
+          <div class="edu-school-name">Gian Jyoti Global School, The British School</div>
           <span class="edu-ytag">2014 – 2016</span>
         </div>
         <div class="edu-bot">
@@ -856,7 +858,7 @@
           <div class="cat-ico" style="background: rgba(91,141,238,0.12); border: 0.5px solid rgba(91,141,238,0.22);">
             <i class="ti ti-code" style="color:#5b8dee; font-size:16px;" aria-hidden="true"></i>
           </div>
-          <span class="cat-title">Languages &amp; Frameworks</span>
+          <span class="cat-title">Programming Languages &amp; Frameworks</span>
           <span class="cat-count">8</span>
         </div>
         <div class="chips-row">
@@ -977,7 +979,13 @@
       </div>
 
     </div>
+  </section>
 
+  <hr class="div">
+
+  <!-- ── Languages ── -->
+  <section class="sec" id="languages">
+    <div class="sec-label">Languages</div>
     <div class="langs-grid">
 
       <div class="lang-card">
