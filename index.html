@@ -342,17 +342,17 @@
     .plinks { display: flex; gap: 8px; margin-top: 12px; }
     .plink {
       font-size: 12px;
-      color: var(--muted);
+      color: #0ABAB5;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      border: 0.5px solid var(--hair);
+      border: 0.5px solid rgba(10,186,181,0.3);
       border-radius: 6px;
       padding: 4px 10px;
-      transition: border-color 0.2s, color 0.2s;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
-    .plink:hover { border-color: rgba(232,145,74,0.5); color: var(--text); }
+    .plink:hover { border-color: rgba(10,186,181,0.6); color: #81D8D0; background: rgba(10,186,181,0.06); }
 
     /* ── Education ── */
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -531,9 +531,9 @@
   <!-- ── Hero (About merged in) ── -->
   <header class="hero">
     <img class="hero-photo fade" src="assets/img/profile.jpeg" alt="Tanishpreet Singh Sidhu">
-    <div class="hero-eyebrow fade">Software Engineering · Business Analysis · Project Management</div>
-    <h1 class="hero-title fade" id="tw-title" data-text="Software Engineer with over 7 years of experience in a product-based fintech environment."></h1>
-    <p class="hero-sub fade">Combines deep software engineering expertise with project and delivery management — leading global teams, managing enterprise releases, and working directly with clients on complex financial systems. Built on a foundation of C#, .NET, SQL, and Azure, with strong exposure to accounting workflows, API integrations, and DevOps practices.</p>
+    <div class="hero-eyebrow fade" id="tw-eyebrow" data-text="Software Engineering · Business Analysis · Project Management"></div>
+    <h1 class="hero-title fade">Software Engineer with over 7 years of experience in a product-based fintech environment.</h1>
+    <p class="hero-sub fade">Leading global teams, managing enterprise clients, and working on complex financial systems. Built on a foundation of C#, .NET, SQL, and Azure, with strong exposure to accounting, API integrations, and AI agentic workflows.</p>
     <div class="fade">
       <a href="#contact" class="btn-p">Get in touch <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
     </div>
@@ -673,7 +673,7 @@
       <div class="card proj-card fade">
         <div class="proj-ico"><i class="ti ti-chart-line" aria-hidden="true"></i></div>
         <div class="proj-name">PeakOrLow</div>
-        <div class="proj-desc">AI-powered market briefing web app in C# and ASP.NET Core, using the Anthropic Claude API. Hosted on Azure with a cost-optimised caching architecture. Built end-to-end with Claude Code.</div>
+        <div class="proj-desc">AI-powered market briefing web app in C# and ASP.NET Core, integrated with the Anthropic Claude API. Hosted on Azure with a cost-optimised caching architecture.</div>
         <div class="proj-tags">C# · ASP.NET · Azure · Claude API</div>
         <div class="plinks">
           <a href="https://github.com/tanishsidhu/PeakOrLow" class="plink" target="_blank" rel="noopener"><i class="ti ti-brand-github" aria-hidden="true"></i> Code</a>
@@ -933,9 +933,8 @@
   <!-- ── Contact ── -->
   <section class="sec" id="contact">
     <div class="contact-block fade">
-      <div class="contact-title">Let's work together</div>
+      <div class="contact-title">Let's work together!</div>
       <div class="contact-tags">
-        <span class="ctag"><span class="cdot"></span>Open to Opportunities</span>
         <span class="ctag green"><span class="cdot green-dot"></span>Serbian Work Permit · Valid until 2029</span>
       </div>
       <div class="c-links">
@@ -990,12 +989,12 @@
         })();
       }
 
-      // ── Hero title types on load ──
-      var title = document.getElementById('tw-title');
-      if (title) {
-        var titleText = title.getAttribute('data-text');
-        if (reduce) { title.textContent = titleText; }
-        else { typeWriter(title, titleText, 75); }
+      // ── Hero eyebrow types on load ──
+      var eyebrow = document.getElementById('tw-eyebrow');
+      if (eyebrow) {
+        var eyebrowText = eyebrow.getAttribute('data-text');
+        if (reduce) { eyebrow.textContent = eyebrowText; }
+        else { typeWriter(eyebrow, eyebrowText, 75); }
       }
 
       // ── Scroll fade-in + language typewriter ──
