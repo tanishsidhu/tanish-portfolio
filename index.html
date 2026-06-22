@@ -44,34 +44,91 @@
       overflow-x: hidden;
     }
 
-    /* ── Ambient orange glow ── */
+    /* ── Ambient orange glow + water reflection ── */
     .glow {
       position: fixed;
       inset: 0;
       z-index: -1;
       pointer-events: none;
       overflow: hidden;
+      filter: url(#water-ripple);
+    }
+    .glow::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 120% 80% at 50% 110%, rgba(232,145,74,0.12), transparent 55%);
+      animation: water-swell 7s ease-in-out infinite;
     }
     .blob {
       position: absolute;
-      border-radius: 50%;
       filter: blur(90px);
+      will-change: transform, border-radius;
     }
     .blob.b1 { width: 380px; height: 380px; top: -60px; left: -40px;
       background: radial-gradient(circle, rgba(232,145,74,0.42), transparent 70%);
-      animation: drift1 28s ease-in-out infinite; }
+      border-radius: 62% 38% 58% 42% / 48% 58% 42% 52%;
+      animation: water-drift-1 10s ease-in-out infinite, blob-wave-1 6s ease-in-out infinite; }
     .blob.b2 { width: 320px; height: 320px; top: 32%; right: -60px;
       background: radial-gradient(circle, rgba(218,119,86,0.34), transparent 70%);
-      animation: drift2 34s ease-in-out infinite; }
+      border-radius: 48% 52% 64% 36% / 58% 42% 56% 44%;
+      animation: water-drift-2 12s ease-in-out infinite, blob-wave-2 7s ease-in-out infinite; }
     .blob.b3 { width: 300px; height: 300px; top: 60%; left: -40px;
       background: radial-gradient(circle, rgba(232,145,74,0.30), transparent 70%);
-      animation: drift3 30s ease-in-out infinite; }
+      border-radius: 54% 46% 40% 60% / 44% 56% 48% 52%;
+      animation: water-drift-3 11s ease-in-out infinite, blob-wave-3 5.5s ease-in-out infinite; }
     .blob.b4 { width: 420px; height: 420px; bottom: -120px; right: 10%;
       background: radial-gradient(circle, rgba(218,119,86,0.28), transparent 70%);
-      animation: drift1 36s ease-in-out infinite; }
-    @keyframes drift1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,30px); } }
-    @keyframes drift2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-45px,40px); } }
-    @keyframes drift3 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(35px,-40px); } }
+      border-radius: 44% 56% 52% 48% / 62% 38% 50% 50%;
+      animation: water-drift-4 13s ease-in-out infinite, blob-wave-4 8s ease-in-out infinite; }
+    @keyframes water-drift-1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(52px, 18px) scale(1.04); }
+      50% { transform: translate(28px, 44px) scale(0.96); }
+      75% { transform: translate(-18px, 22px) scale(1.02); }
+    }
+    @keyframes water-drift-2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-58px, 26px) scale(1.05); }
+      66% { transform: translate(-24px, -34px) scale(0.94); }
+    }
+    @keyframes water-drift-3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      20% { transform: translate(36px, -28px) scale(1.03); }
+      55% { transform: translate(62px, 12px) scale(0.97); }
+      80% { transform: translate(14px, 38px) scale(1.01); }
+    }
+    @keyframes water-drift-4 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      40% { transform: translate(-34px, -46px) scale(1.06); }
+      70% { transform: translate(22px, -18px) scale(0.95); }
+    }
+    @keyframes blob-wave-1 {
+      0%, 100% { border-radius: 62% 38% 58% 42% / 48% 58% 42% 52%; }
+      50% { border-radius: 44% 56% 48% 52% / 58% 42% 60% 40%; }
+    }
+    @keyframes blob-wave-2 {
+      0%, 100% { border-radius: 48% 52% 64% 36% / 58% 42% 56% 44%; }
+      50% { border-radius: 58% 42% 46% 54% / 40% 60% 44% 56%; }
+    }
+    @keyframes blob-wave-3 {
+      0%, 100% { border-radius: 54% 46% 40% 60% / 44% 56% 48% 52%; }
+      50% { border-radius: 40% 60% 56% 44% / 52% 48% 38% 62%; }
+    }
+    @keyframes blob-wave-4 {
+      0%, 100% { border-radius: 44% 56% 52% 48% / 62% 38% 50% 50%; }
+      50% { border-radius: 56% 44% 38% 62% / 46% 54% 58% 42%; }
+    }
+    @keyframes water-swell {
+      0%, 100% { transform: translateY(0) scaleY(1); opacity: 0.7; }
+      50% { transform: translateY(-3%) scaleY(1.08); opacity: 1; }
+    }
+    .water-filters {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
 
     /* ── Scroll fade ── */
     html.js .fade { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -498,6 +555,8 @@
 
     /* ── Reduced motion ── */
     @media (prefers-reduced-motion: reduce) {
+      .glow { filter: none; }
+      .glow::after { animation: none !important; }
       .blob { animation: none !important; }
       html.js .fade { opacity: 1 !important; transform: none !important; transition: none !important; }
       html { scroll-behavior: auto; }
@@ -505,6 +564,20 @@
   </style>
 </head>
 <body>
+
+  <svg class="water-filters" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="water-ripple" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.003 0.008" numOctaves="2" seed="3" result="noise">
+          <animate attributeName="baseFrequency" dur="7s" repeatCount="indefinite"
+            values="0.003 0.008;0.0045 0.011;0.0025 0.007;0.0035 0.009;0.003 0.008"/>
+          <animate attributeName="seed" dur="4s" repeatCount="indefinite" values="1;4;2;5;1"/>
+        </feTurbulence>
+        <feGaussianBlur in="noise" stdDeviation="12" result="smoothNoise"/>
+        <feDisplacementMap in="SourceGraphic" in2="smoothNoise" scale="34" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
 
   <!-- ── Ambient orange glow ── -->
   <div class="glow" aria-hidden="true">
