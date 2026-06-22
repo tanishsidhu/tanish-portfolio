@@ -57,8 +57,8 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 120% 80% at 50% 110%, rgba(232,145,74,0.12), transparent 55%);
-      animation: water-swell 2s ease-in-out infinite;
+      background: radial-gradient(ellipse 120% 80% at 50% 110%, rgba(232,145,74,0.16), transparent 55%);
+      animation: water-swell 6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
     }
     .blob {
       position: absolute;
@@ -66,42 +66,46 @@
       will-change: transform, border-radius;
     }
     .blob.b1 { width: 380px; height: 380px; top: -60px; left: -40px;
-      background: radial-gradient(circle, rgba(232,145,74,0.42), transparent 70%);
+      background: radial-gradient(circle, rgba(232,145,74,0.46), transparent 70%);
       border-radius: 62% 38% 58% 42% / 48% 58% 42% 52%;
-      animation: water-drift-1 2.5s ease-in-out infinite, blob-wave-1 1.5s ease-in-out infinite; }
+      animation: water-drift-1 7s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite, blob-wave-1 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
     .blob.b2 { width: 320px; height: 320px; top: 32%; right: -60px;
-      background: radial-gradient(circle, rgba(218,119,86,0.34), transparent 70%);
+      background: radial-gradient(circle, rgba(218,119,86,0.38), transparent 70%);
       border-radius: 48% 52% 64% 36% / 58% 42% 56% 44%;
-      animation: water-drift-2 3s ease-in-out infinite, blob-wave-2 1.8s ease-in-out infinite; }
+      animation: water-drift-2 8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite, blob-wave-2 5.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
     .blob.b3 { width: 300px; height: 300px; top: 60%; left: -40px;
-      background: radial-gradient(circle, rgba(232,145,74,0.30), transparent 70%);
+      background: radial-gradient(circle, rgba(232,145,74,0.34), transparent 70%);
       border-radius: 54% 46% 40% 60% / 44% 56% 48% 52%;
-      animation: water-drift-3 2.8s ease-in-out infinite, blob-wave-3 1.4s ease-in-out infinite; }
+      animation: water-drift-3 7.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite, blob-wave-3 4.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
     .blob.b4 { width: 420px; height: 420px; bottom: -120px; right: 10%;
-      background: radial-gradient(circle, rgba(218,119,86,0.28), transparent 70%);
+      background: radial-gradient(circle, rgba(218,119,86,0.32), transparent 70%);
       border-radius: 44% 56% 52% 48% / 62% 38% 50% 50%;
-      animation: water-drift-4 3.2s ease-in-out infinite, blob-wave-4 2s ease-in-out infinite; }
+      animation: water-drift-4 8.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite, blob-wave-4 6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
     @keyframes water-drift-1 {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      25% { transform: translate(52px, 18px) scale(1.04); }
-      50% { transform: translate(28px, 44px) scale(0.96); }
-      75% { transform: translate(-18px, 22px) scale(1.02); }
+      20% { transform: translate(44px, 14px) scale(1.06); }
+      40% { transform: translate(72px, 38px) scale(0.97); }
+      60% { transform: translate(36px, 56px) scale(1.04); }
+      80% { transform: translate(-26px, 30px) scale(1.02); }
     }
     @keyframes water-drift-2 {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(-58px, 26px) scale(1.05); }
-      66% { transform: translate(-24px, -34px) scale(0.94); }
+      25% { transform: translate(-48px, 22px) scale(1.07); }
+      50% { transform: translate(-78px, 34px) scale(0.96); }
+      75% { transform: translate(-30px, -42px) scale(1.03); }
     }
     @keyframes water-drift-3 {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      20% { transform: translate(36px, -28px) scale(1.03); }
-      55% { transform: translate(62px, 12px) scale(0.97); }
-      80% { transform: translate(14px, 38px) scale(1.01); }
+      20% { transform: translate(42px, -32px) scale(1.05); }
+      45% { transform: translate(74px, 8px) scale(0.98); }
+      70% { transform: translate(48px, 44px) scale(1.04); }
+      85% { transform: translate(12px, 24px) scale(1.01); }
     }
     @keyframes water-drift-4 {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      40% { transform: translate(-34px, -46px) scale(1.06); }
-      70% { transform: translate(22px, -18px) scale(0.95); }
+      30% { transform: translate(-42px, -52px) scale(1.08); }
+      55% { transform: translate(-18px, -28px) scale(0.97); }
+      80% { transform: translate(28px, -22px) scale(1.03); }
     }
     @keyframes blob-wave-1 {
       0%, 100% { border-radius: 62% 38% 58% 42% / 48% 58% 42% 52%; }
@@ -120,8 +124,56 @@
       50% { border-radius: 56% 44% 38% 62% / 46% 54% 58% 42%; }
     }
     @keyframes water-swell {
-      0%, 100% { transform: translateY(0) scaleY(1); opacity: 0.7; }
-      50% { transform: translateY(-3%) scaleY(1.08); opacity: 1; }
+      0%, 100% { transform: translateY(0) scaleY(1); opacity: 0.75; }
+      50% { transform: translateY(-4%) scaleY(1.12); opacity: 1; }
+    }
+
+    /* ── Lighter surface waves ── */
+    .light-waves {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .wave-band {
+      position: absolute;
+      left: -30%;
+      width: 160%;
+      height: 42%;
+      border-radius: 50%;
+      filter: blur(20px);
+      opacity: 0.9;
+      will-change: transform;
+    }
+    .wave-band.w1 {
+      top: 6%;
+      background: radial-gradient(ellipse 58% 44% at 50% 50%, rgba(255,190,120,0.42) 0%, rgba(232,145,74,0.18) 38%, transparent 68%);
+      animation: light-wave-1 3.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    }
+    .wave-band.w2 {
+      top: 32%;
+      background: radial-gradient(ellipse 62% 40% at 50% 50%, rgba(255,175,95,0.36) 0%, rgba(218,119,86,0.16) 42%, transparent 70%);
+      animation: light-wave-2 4.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+      opacity: 0.82;
+    }
+    .wave-band.w3 {
+      top: 56%;
+      background: radial-gradient(ellipse 54% 42% at 50% 50%, rgba(255,185,110,0.38) 0%, rgba(232,145,74,0.17) 38%, transparent 68%);
+      animation: light-wave-3 4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+      opacity: 0.78;
+    }
+    @keyframes light-wave-1 {
+      0%, 100% { transform: translate3d(-10%, 0, 0) scale(1); }
+      50% { transform: translate3d(11%, -6%, 0) scale(1.1); }
+    }
+    @keyframes light-wave-2 {
+      0%, 100% { transform: translate3d(9%, 3%, 0) scale(1.04); }
+      50% { transform: translate3d(-12%, -5%, 0) scale(1.12); }
+    }
+    @keyframes light-wave-3 {
+      0%, 100% { transform: translate3d(-8%, 4%, 0) scale(1); }
+      50% { transform: translate3d(10%, -4%, 0) scale(1.08); }
     }
     .water-filters {
       position: absolute;
@@ -156,12 +208,14 @@
       border-radius: 12px;
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
-      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
     }
-    .card:hover {
+    .card:hover,
+    html.js .card.fade.in:hover {
       transform: translateY(-4px);
       border-color: rgba(232,145,74,0.5);
       background: var(--card-hover);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.22), 0 0 0 1px rgba(232,145,74,0.1);
     }
 
     .accent { color: var(--accent); }
@@ -221,8 +275,8 @@
       text-align: center;
     }
     .hero-photo {
-      width: 104px;
-      height: 104px;
+      width: 128px;
+      height: 128px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center 20%;
@@ -232,9 +286,10 @@
       display: block;
     }
     .hero-eyebrow {
+      font-family: 'OpenAI Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 13px;
       font-weight: 500;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.02em;
       color: var(--accent);
       text-transform: uppercase;
       margin-bottom: 24px;
@@ -350,7 +405,7 @@
 
     .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; grid-auto-rows: 1fr; }
     .ac { padding: 16px; }
-    .ac.banner { margin-top: 12px; }
+    .ac.banner { margin-bottom: 12px; }
     .ac-ico { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
     .ac-ico i { font-size: 17px; color: var(--accent); }
     .ac-stat { font-size: 20px; font-weight: 600; color: var(--accent); letter-spacing: -0.02em; }
@@ -368,8 +423,14 @@
       align-items: center;
       justify-content: center;
     }
-    .client-tile img { height: 18px; width: auto; display: block; }
-    .client-tile.td img { height: 24px; }
+    .client-tile img { height: 18px; width: auto; max-width: 88px; object-fit: contain; display: block; }
+    .client-tile.hpe img { height: 13px; max-width: 72px; }
+    .client-tile.ge img { height: 20px; max-width: 20px; }
+    .client-tile.td img { height: 22px; max-width: 22px; }
+    .client-tile.canon img { height: 13px; max-width: 64px; }
+    .client-tile.haydock img { height: 14px; max-width: 78px; }
+    .client-tile.asset-alliance img { height: 14px; max-width: 92px; }
+    .client-tile.volvo img { height: 20px; max-width: 20px; }
     .client-chip {
       font-size: 11px;
       color: var(--muted);
@@ -413,24 +474,24 @@
 
     /* ── Education ── */
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .edu-card { padding: 24px 22px; display: flex; flex-direction: column; }
+    .edu-card { padding: 18px 16px; display: flex; flex-direction: column; }
     .edu-ico {
-      width: 40px; height: 40px;
-      border-radius: 10px;
+      width: 34px; height: 34px;
+      border-radius: 9px;
       background: rgba(232,145,74,0.1);
       border: 0.5px solid rgba(232,145,74,0.22);
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px; font-size: 19px;
+      margin-bottom: 12px; font-size: 16px;
     }
     .edu-ico i { color: var(--accent); }
-    .edu-school-name { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; letter-spacing: -0.01em; min-height: 2.6em; display: flex; align-items: flex-start; }
+    .edu-school-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; letter-spacing: -0.01em; min-height: 2.1em; display: flex; align-items: flex-start; }
     .edu-ytag { font-size: 11px; color: var(--faint); }
-    .edu-deg { font-size: 13px; color: var(--muted); line-height: 1.5; margin: 14px 0 16px; min-height: 2.5em; }
+    .edu-deg { font-size: 12.5px; color: var(--muted); line-height: 1.45; margin: 10px 0 12px; min-height: 2.1em; }
     .edu-foot { margin-top: auto; }
     .cgpa-row { display: flex; align-items: baseline; gap: 8px; }
     .cgpa-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--faint); }
-    .cgpa-val { font-size: 18px; font-weight: 600; color: var(--accent); letter-spacing: -0.01em; }
-    .edu-loc { display: flex; align-items: center; gap: 5px; margin-top: 14px; font-size: 12px; color: var(--faint); }
+    .cgpa-val { font-size: 16px; font-weight: 600; color: var(--accent); letter-spacing: -0.01em; }
+    .edu-loc { display: flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 11.5px; color: var(--faint); }
 
     /* ── Skills ── */
     .skill-cats { display: flex; flex-direction: column; gap: 12px; }
@@ -558,6 +619,9 @@
       .glow { filter: none; }
       .glow::after { animation: none !important; }
       .blob { animation: none !important; }
+      .wave-band { animation: none !important; }
+      .card:hover,
+      html.js .card.fade.in:hover { transform: none !important; box-shadow: none !important; }
       html.js .fade { opacity: 1 !important; transform: none !important; transition: none !important; }
       html { scroll-behavior: auto; }
     }
@@ -569,12 +633,22 @@
     <defs>
       <filter id="water-ripple" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
         <feTurbulence type="fractalNoise" baseFrequency="0.003 0.008" numOctaves="2" seed="3" result="noise">
-          <animate attributeName="baseFrequency" dur="2s" repeatCount="indefinite"
-            values="0.003 0.008;0.0045 0.011;0.0025 0.007;0.0035 0.009;0.003 0.008"/>
-          <animate attributeName="seed" dur="1s" repeatCount="indefinite" values="1;4;2;5;1"/>
+          <animate attributeName="baseFrequency" dur="8s" repeatCount="indefinite" calcMode="spline"
+            keyTimes="0;0.25;0.5;0.75;1"
+            keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+            values="0.003 0.008;0.0042 0.010;0.0028 0.007;0.0036 0.009;0.003 0.008"/>
+          <animate attributeName="seed" dur="6s" repeatCount="indefinite" calcMode="spline"
+            keyTimes="0;0.33;0.66;1"
+            keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+            values="1;3;2;1"/>
         </feTurbulence>
-        <feGaussianBlur in="noise" stdDeviation="12" result="smoothNoise"/>
-        <feDisplacementMap in="SourceGraphic" in2="smoothNoise" scale="40" xChannelSelector="R" yChannelSelector="G"/>
+        <feGaussianBlur in="noise" stdDeviation="14" result="smoothNoise"/>
+        <feDisplacementMap in="SourceGraphic" in2="smoothNoise" scale="48" xChannelSelector="R" yChannelSelector="G">
+          <animate attributeName="scale" dur="7s" repeatCount="indefinite" calcMode="spline"
+            keyTimes="0;0.5;1"
+            keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
+            values="40;52;40"/>
+        </feDisplacementMap>
       </filter>
     </defs>
   </svg>
@@ -585,6 +659,12 @@
     <div class="blob b2"></div>
     <div class="blob b3"></div>
     <div class="blob b4"></div>
+  </div>
+
+  <div class="light-waves" aria-hidden="true">
+    <span class="wave-band w1"></span>
+    <span class="wave-band w2"></span>
+    <span class="wave-band w3"></span>
   </div>
 
   <!-- ── Navigation ── -->
@@ -678,6 +758,22 @@
       <!-- Key contributions -->
       <div class="fade">
         <div class="ach-label">Key contributions</div>
+
+        <div class="card ac banner">
+          <div class="ac-ico"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
+          <div class="ac-title">Enterprise Client Management</div>
+          <div class="ac-body">Technical lead for HPE, GE Capital, TD Bank, Canon Financial, Haydock Finance, Asset Alliance Group, and Volvo Financial Services.</div>
+          <div class="client-row">
+            <span class="client-tile hpe"><img src="assets/img/logos/hpe.svg" alt="HPE logo"></span>
+            <span class="client-tile ge"><img src="assets/img/logos/ge-capital.svg" alt="GE Capital logo"></span>
+            <span class="client-tile td"><img src="assets/img/logos/td-bank.svg" alt="TD Bank logo"></span>
+            <span class="client-tile canon"><img src="assets/img/logos/canon.svg" alt="Canon Financial logo"></span>
+            <span class="client-tile haydock"><img src="assets/img/logos/haydock.png" alt="Haydock Finance logo"></span>
+            <span class="client-tile asset-alliance"><img src="assets/img/logos/asset-alliance.png" alt="Asset Alliance Group logo"></span>
+            <span class="client-tile volvo"><img src="assets/img/logos/volvo.svg" alt="Volvo Financial Services logo"></span>
+          </div>
+        </div>
+
         <div class="ach-grid">
 
           <div class="card ac">
@@ -716,21 +812,6 @@
             <div class="ac-body">Contributed to internal AI integrations with ABBYY and ZEST for AI-assisted contract summaries. Leveraged Claude Code and Codex as daily productivity aids alongside core engineering work.</div>
           </div>
 
-        </div>
-
-        <div class="card ac banner">
-          <div class="ac-ico"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
-          <div class="ac-title">Enterprise Client Management</div>
-          <div class="ac-body">Technical lead for HPE, GE Capital, TD Bank, Canon Financial, Haydock Finance, Asset Alliance Group, and Volvo Financial Services.</div>
-          <div class="client-row">
-            <span class="client-tile"><img src="assets/img/logos/hpe.svg" alt="HPE logo"></span>
-            <span class="client-tile"><img src="assets/img/logos/ge-capital.svg" alt="GE Capital logo"></span>
-            <span class="client-tile td"><img src="assets/img/logos/td-bank.svg" alt="TD Bank logo"></span>
-            <span class="client-tile"><img src="assets/img/logos/canon.svg" alt="Canon Financial logo"></span>
-            <span class="client-tile"><img src="assets/img/logos/haydock.svg" alt="Haydock Finance logo"></span>
-            <span class="client-tile"><img src="assets/img/logos/asset-alliance.svg" alt="Asset Alliance Group logo"></span>
-            <span class="client-tile"><img src="assets/img/logos/volvo.svg" alt="Volvo Financial Services logo"></span>
-          </div>
         </div>
       </div>
     </div>
@@ -841,122 +922,6 @@
 
   <hr class="div">
 
-  <!-- ── Skills & Competencies ── -->
-  <section class="sec" id="skills">
-    <div class="sec-label fade">Skills &amp; Competencies</div>
-    <div class="skill-cats">
-
-      <div class="card cat-card fade">
-        <div class="cat-hd">
-          <div class="cat-ico"><i class="ti ti-code" aria-hidden="true"></i></div>
-          <span class="cat-title">Programming Languages &amp; Frameworks</span>
-          <span class="cat-count">9</span>
-        </div>
-        <div class="chips-row">
-          <span class="sk">C#</span>
-          <span class="sk">VB.NET</span>
-          <span class="sk"><i class="ti ti-layers-linked" aria-hidden="true"></i> Entity Framework</span>
-          <span class="sk"><i class="ti ti-brand-javascript" aria-hidden="true"></i> JavaScript</span>
-          <span class="sk"><i class="ti ti-brand-html5" aria-hidden="true"></i> HTML</span>
-          <span class="sk"><i class="ti ti-brand-python" aria-hidden="true"></i> Python</span>
-          <span class="sk"><i class="ti ti-brand-react" aria-hidden="true"></i> React.js</span>
-          <span class="sk"><i class="ti ti-brand-nodejs" aria-hidden="true"></i> Node.js</span>
-          <span class="sk"><i class="ti ti-leaf" aria-hidden="true"></i> MongoDB</span>
-        </div>
-      </div>
-
-      <div class="card cat-card fade">
-        <div class="cat-hd">
-          <div class="cat-ico"><i class="ti ti-cloud" aria-hidden="true"></i></div>
-          <span class="cat-title">Cloud &amp; DevOps</span>
-          <span class="cat-count">4</span>
-        </div>
-        <div class="chips-row">
-          <span class="sk"><i class="ti ti-brand-azure" aria-hidden="true"></i> Azure</span>
-          <span class="sk"><i class="ti ti-git-branch" aria-hidden="true"></i> Git</span>
-          <span class="sk"><i class="ti ti-versions" aria-hidden="true"></i> TFS</span>
-          <span class="sk"><i class="ti ti-terminal" aria-hidden="true"></i> Visual Studio</span>
-        </div>
-      </div>
-
-      <div class="card cat-card fade">
-        <div class="cat-hd">
-          <div class="cat-ico"><i class="ti ti-database" aria-hidden="true"></i></div>
-          <span class="cat-title">Data &amp; SQL</span>
-          <span class="cat-count">4</span>
-        </div>
-        <div class="chips-row">
-          <span class="sk"><i class="ti ti-database" aria-hidden="true"></i> SQL</span>
-          <span class="sk"><i class="ti ti-activity" aria-hidden="true"></i> SQL Profiler</span>
-          <span class="sk"><i class="ti ti-chart-bar" aria-hidden="true"></i> Power BI</span>
-          <span class="sk"><i class="ti ti-table" aria-hidden="true"></i> Excel</span>
-        </div>
-      </div>
-
-      <div class="card cat-card fade">
-        <div class="cat-hd">
-          <div class="cat-ico"><i class="ti ti-layout-kanban" aria-hidden="true"></i></div>
-          <span class="cat-title">Project Management &amp; Collaboration</span>
-          <span class="cat-count">5</span>
-        </div>
-        <div class="chips-row">
-          <span class="sk"><i class="ti ti-brand-trello" aria-hidden="true"></i> JIRA</span>
-          <span class="sk"><i class="ti ti-headset" aria-hidden="true"></i> ServiceNow</span>
-          <span class="sk"><i class="ti ti-books" aria-hidden="true"></i> Confluence</span>
-          <span class="sk"><i class="ti ti-player-play" aria-hidden="true"></i> Power Automate</span>
-          <span class="sk"><i class="ti ti-api" aria-hidden="true"></i> Postman</span>
-        </div>
-      </div>
-
-      <div class="card cat-card fade">
-        <div class="cat-hd">
-          <div class="cat-ico"><i class="ti ti-brain" aria-hidden="true"></i></div>
-          <span class="cat-title">AI &amp; Agentic Tooling</span>
-          <span class="cat-count">5</span>
-        </div>
-        <div class="chips-row">
-          <span class="sk"><i class="ti ti-sparkles" aria-hidden="true"></i> Claude Code</span>
-          <span class="sk"><i class="ti ti-pointer" aria-hidden="true"></i> Cursor</span>
-          <span class="sk"><i class="ti ti-robot" aria-hidden="true"></i> Codex</span>
-          <span class="sk"><i class="ti ti-rocket" aria-hidden="true"></i> Google Antigravity</span>
-          <span class="sk"><i class="ti ti-cat" aria-hidden="true"></i> OpenClaw</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="div">
-
-  <!-- ── Languages ── -->
-  <section class="sec" id="languages">
-    <div class="sec-label fade">Languages</div>
-    <div class="langs-grid">
-      <div class="card lang-card fade">
-        <span class="lang-flag">🇬🇧</span>
-        <div class="lang-name tw-lang" data-text="English" lang="en"></div>
-        <div class="lang-lvl">Full professional</div>
-      </div>
-      <div class="card lang-card fade">
-        <span class="lang-flag">🇮🇳</span>
-        <div class="lang-name tw-lang" data-text="हिन्दी" lang="hi"></div>
-        <div class="lang-lvl">Native</div>
-      </div>
-      <div class="card lang-card fade">
-        <span class="lang-flag">🇮🇳</span>
-        <div class="lang-name tw-lang" data-text="ਪੰਜਾਬੀ" lang="pa"></div>
-        <div class="lang-lvl">Native</div>
-      </div>
-      <div class="card lang-card fade">
-        <span class="lang-flag">🇷🇸</span>
-        <div class="lang-name tw-lang" data-text="Српски" lang="sr"></div>
-        <div class="lang-lvl">Learning</div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="div">
-
   <!-- ── Awards & Certifications ── -->
   <section class="sec" id="awards">
     <div class="sec-label fade">Awards &amp; Certifications</div>
@@ -1015,6 +980,122 @@
 
   <hr class="div">
 
+  <!-- ── Skills & Competencies ── -->
+  <section class="sec" id="skills">
+    <div class="sec-label fade">Skills &amp; Competencies</div>
+    <div class="skill-cats">
+
+      <div class="card cat-card fade">
+        <div class="cat-hd">
+          <div class="cat-ico"><i class="ti ti-code" aria-hidden="true"></i></div>
+          <span class="cat-title">Programming Languages &amp; Frameworks</span>
+          <span class="cat-count">9</span>
+        </div>
+        <div class="chips-row">
+          <span class="sk">C#</span>
+          <span class="sk">VB.NET</span>
+          <span class="sk"><i class="ti ti-layers-linked" aria-hidden="true"></i> Entity Framework</span>
+          <span class="sk"><i class="ti ti-brand-javascript" aria-hidden="true"></i> JavaScript</span>
+          <span class="sk"><i class="ti ti-brand-html5" aria-hidden="true"></i> HTML</span>
+          <span class="sk"><i class="ti ti-brand-python" aria-hidden="true"></i> Python</span>
+          <span class="sk"><i class="ti ti-brand-react" aria-hidden="true"></i> React.js</span>
+          <span class="sk"><i class="ti ti-brand-nodejs" aria-hidden="true"></i> Node.js</span>
+          <span class="sk"><i class="ti ti-leaf" aria-hidden="true"></i> MongoDB</span>
+        </div>
+      </div>
+
+      <div class="card cat-card fade">
+        <div class="cat-hd">
+          <div class="cat-ico"><i class="ti ti-brain" aria-hidden="true"></i></div>
+          <span class="cat-title">AI &amp; Agentic Tooling</span>
+          <span class="cat-count">5</span>
+        </div>
+        <div class="chips-row">
+          <span class="sk"><i class="ti ti-sparkles" aria-hidden="true"></i> Claude Code</span>
+          <span class="sk"><i class="ti ti-pointer" aria-hidden="true"></i> Cursor</span>
+          <span class="sk"><i class="ti ti-robot" aria-hidden="true"></i> Codex</span>
+          <span class="sk"><i class="ti ti-rocket" aria-hidden="true"></i> Google Antigravity</span>
+          <span class="sk"><i class="ti ti-cat" aria-hidden="true"></i> OpenClaw</span>
+        </div>
+      </div>
+
+      <div class="card cat-card fade">
+        <div class="cat-hd">
+          <div class="cat-ico"><i class="ti ti-cloud" aria-hidden="true"></i></div>
+          <span class="cat-title">Cloud &amp; DevOps</span>
+          <span class="cat-count">4</span>
+        </div>
+        <div class="chips-row">
+          <span class="sk"><i class="ti ti-brand-azure" aria-hidden="true"></i> Azure</span>
+          <span class="sk"><i class="ti ti-git-branch" aria-hidden="true"></i> Git</span>
+          <span class="sk"><i class="ti ti-versions" aria-hidden="true"></i> TFS</span>
+          <span class="sk"><i class="ti ti-terminal" aria-hidden="true"></i> Visual Studio</span>
+        </div>
+      </div>
+
+      <div class="card cat-card fade">
+        <div class="cat-hd">
+          <div class="cat-ico"><i class="ti ti-database" aria-hidden="true"></i></div>
+          <span class="cat-title">Data &amp; SQL</span>
+          <span class="cat-count">4</span>
+        </div>
+        <div class="chips-row">
+          <span class="sk"><i class="ti ti-database" aria-hidden="true"></i> SQL</span>
+          <span class="sk"><i class="ti ti-activity" aria-hidden="true"></i> SQL Profiler</span>
+          <span class="sk"><i class="ti ti-chart-bar" aria-hidden="true"></i> Power BI</span>
+          <span class="sk"><i class="ti ti-table" aria-hidden="true"></i> Excel</span>
+        </div>
+      </div>
+
+      <div class="card cat-card fade">
+        <div class="cat-hd">
+          <div class="cat-ico"><i class="ti ti-layout-kanban" aria-hidden="true"></i></div>
+          <span class="cat-title">Project Management &amp; Collaboration</span>
+          <span class="cat-count">5</span>
+        </div>
+        <div class="chips-row">
+          <span class="sk"><i class="ti ti-brand-trello" aria-hidden="true"></i> JIRA</span>
+          <span class="sk"><i class="ti ti-headset" aria-hidden="true"></i> ServiceNow</span>
+          <span class="sk"><i class="ti ti-books" aria-hidden="true"></i> Confluence</span>
+          <span class="sk"><i class="ti ti-player-play" aria-hidden="true"></i> Power Automate</span>
+          <span class="sk"><i class="ti ti-api" aria-hidden="true"></i> Postman</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <!-- ── Languages ── -->
+  <section class="sec" id="languages">
+    <div class="sec-label fade">Languages</div>
+    <div class="langs-grid">
+      <div class="card lang-card fade">
+        <span class="lang-flag">🇬🇧</span>
+        <div class="lang-name tw-lang" data-text="English" lang="en"></div>
+        <div class="lang-lvl">Full professional</div>
+      </div>
+      <div class="card lang-card fade">
+        <span class="lang-flag">🇮🇳</span>
+        <div class="lang-name tw-lang" data-text="हिन्दी" lang="hi"></div>
+        <div class="lang-lvl">Native</div>
+      </div>
+      <div class="card lang-card fade">
+        <span class="lang-flag">🇮🇳</span>
+        <div class="lang-name tw-lang" data-text="ਪੰਜਾਬੀ" lang="pa"></div>
+        <div class="lang-lvl">Native</div>
+      </div>
+      <div class="card lang-card fade">
+        <span class="lang-flag">🇷🇸</span>
+        <div class="lang-name tw-lang" data-text="Српски" lang="sr"></div>
+        <div class="lang-lvl">Learning</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="div">
+
   <!-- ── Contact ── -->
   <section class="sec" id="contact">
     <div class="contact-block fade">
@@ -1054,20 +1135,28 @@
       var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var hasIO = 'IntersectionObserver' in window;
 
-      function typeWriter(el, text, speed, onDone) {
+      function typeWriter(el, text, speed, onDone, showCursor) {
+        if (showCursor === undefined) showCursor = true;
         el.textContent = '';
-        var cursor = document.createElement('span');
-        cursor.className = 'tw-cursor';
-        cursor.setAttribute('aria-hidden', 'true');
-        el.appendChild(cursor);
+        var cursor = null;
+        if (showCursor) {
+          cursor = document.createElement('span');
+          cursor.className = 'tw-cursor';
+          cursor.setAttribute('aria-hidden', 'true');
+          el.appendChild(cursor);
+        }
         var i = 0;
         (function step() {
           if (i < text.length) {
-            cursor.insertAdjacentText('beforebegin', text.charAt(i));
+            if (cursor) {
+              cursor.insertAdjacentText('beforebegin', text.charAt(i));
+            } else {
+              el.textContent += text.charAt(i);
+            }
             i++;
             setTimeout(step, speed);
           } else {
-            cursor.classList.add('done');
+            if (cursor) cursor.classList.add('done');
             if (onDone) onDone();
           }
         })();
@@ -1078,7 +1167,7 @@
       if (eyebrow) {
         var eyebrowText = eyebrow.getAttribute('data-text');
         if (reduce) { eyebrow.textContent = eyebrowText; }
-        else { typeWriter(eyebrow, eyebrowText, 55); }
+        else { typeWriter(eyebrow, eyebrowText, 55, null, false); }
       }
 
       // ── Scroll fade-in + language typewriter ──
@@ -1107,7 +1196,7 @@
             var el = entry.target;
             langObs.unobserve(el);
             if (reduce) { fillLang(el); }
-            else { typeWriter(el, el.getAttribute('data-text'), 160); }
+            else { typeWriter(el, el.getAttribute('data-text'), 160, null, false); }
           }
         });
       }, { threshold: 0.6 });
